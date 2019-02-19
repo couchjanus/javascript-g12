@@ -1,0 +1,26 @@
+{
+  "name": "javascript-g12",
+  "version": "1.0.0",
+  "description": "Javascript SPA Shpaholic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/couchjanus/javascript-g12.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/couchjanus/javascript-g12/issues"
+  },
+  "homepage": "https://github.com/couchjanus/javascript-g12#readme",
+  "devDependencies": {
+    "jshint": "^2.10.1",
+    "jslint": "^0.12.1",
+    "prettier": "1.16.4"
+  }
+}

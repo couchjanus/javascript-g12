@@ -1,0 +1,88 @@
+.navbar label {
+    display: none;
+    font-size: 30px;
+    position: fixed;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 150;
+}
+
+.nav-menu {
+    @include flexible ();
+    // display: flex;
+    // justify-content: space-around;
+    flex-flow: row wrap;
+    background: url(./images/overlay.png) $menu-bg-color;
+    list-style: none;
+    margin: 0;
+
+    .nav-item a {
+        color: $anchor-text-color;
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        font-size: 1.2rem;
+
+        &:hover,
+        &:focus {
+            color: $anchor-color-hover;
+            background: $anchor-bg-color-hover;
+        }
+    }
+
+}
+
+.navbar>input[type="checkbox"] {
+    display: none;
+
+    &:checked+label {
+        color: $anchor-color-hover;
+        font-style: normal;
+    }
+
+    &+label {
+        color: $anchor-text-color;
+    }
+}
+
+@media (max-width: 767px) {
+    .nav-menu {
+        @include flexible ();
+        flex-flow: column wrap;
+        // justify-content: space-around;
+        padding: 0;
+        position: relative;
+        display: none;
+
+        &:first-child {
+            z-index: 100;
+        }
+    }
+
+    .nav-item a {
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .navbar {
+        @include flexible ();
+        display: block;
+        background: $menu-bg-color;
+        height: 50px;
+        flex-flow: column wrap;
+
+
+        & label {
+            display: block;
+        }
+
+        & input[type="checkbox"]:checked~.nav-menu {
+            display: flex;
+            z-index: 100;
+        }
+    }
+}
