@@ -19,8 +19,12 @@
   },
   "homepage": "https://github.com/couchjanus/javascript-g12#readme",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2",
     "jshint": "^2.10.1",
     "jslint": "^0.12.1",
     "prettier": "1.16.4"
+  },
+  "dependencies": {
+    "normalize": "^0.3.1"
   }
 }
