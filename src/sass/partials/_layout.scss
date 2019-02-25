@@ -1,5 +1,42 @@
 /* Layout */
+ 
+body{
+    display: grid;
+    grid-template-columns: 9fr auto;
+    grid-template-rows: 50px auto 50px;
+    grid-template-areas: "header header" 
+                         "main aside"
+                         "footer footer";
+}
 
+.aside{
+    grid-area: aside;
+    background-color: brown; 
+    overflow: auto;
+    // width: $sidebar-width;
+    width: 0;
+    transition: left $animation-duration $animation-ease, width $animation-duration $animation-ease;
+    z-index: 10;
+}
+
+.header{
+    grid-area: header;
+    background-color: rgb(245, 202, 12);
+}
+  
+.main{
+    grid-area: main;
+    background-color: maroon;
+}
+  
+.footer{
+    grid-area: footer;
+    background-color: #992;
+}
+
+.show-sidebar {
+    width: $sidebar-width;
+}
 .footer {
     width: 100%;
     padding: 0;

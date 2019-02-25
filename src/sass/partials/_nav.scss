@@ -1,4 +1,5 @@
-.navbar label {
+.navbar {
+    label {
     display: none;
     font-size: 30px;
     position: fixed;
@@ -9,7 +10,17 @@
     right: 0;
     z-index: 150;
 }
-
+.cart{
+    display: none;
+    font-size: 30px;
+    position: fixed;
+    padding: 10px;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    color: $anchor-color-hover;
+}
+}
 .nav-menu {
     @include flexible ();
     // display: flex;
@@ -77,6 +88,10 @@
 
 
         & label {
+            display: block;
+        }
+
+        & .cart {
             display: block;
         }
 
