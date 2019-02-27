@@ -1,4 +1,6 @@
+'use strict';
 import '../sass/main.scss';
+
 import './test';
-// import './calc';
+// import './appjq';
 // import './app';

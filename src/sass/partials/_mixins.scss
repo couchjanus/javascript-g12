@@ -1,33 +1,5 @@
-@mixin flexible () {
+@mixin flexible ($align, $justify) {
     display: flex;
-    justify-content: space-around;
-    // align-items: center;
-}
-
-@mixin border-radius($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    -ms-border-radius: $radius;
-    border-radius: $radius;
-}
-
-@mixin box-shadow($shadow) {
-    -webkit-box-shadow: $shadow;
-    -moz-box-shadow: $shadow;
-    -ms-box-shadow: $shadow;
-    box-shadow: $shadow;
-}
-
-@mixin backface-visibility($visibility) {
-    -webkit-backface-visibility: $visibility;
-    -moz-backface-visibility: $visibility;
-    -ms-backface-visibility: $visibility;
-    backface-visibility: $visibility;
-}
-
-@mixin transform-style($style) {
-    -webkit-transform-style: $style;
-    -moz-transform-style: $style;
-    -ms-transform-style: $style;
-    transform-style: $style;
+    justify-content: $justify;
+    align-items: $align;
 }

@@ -11,20 +11,23 @@
     z-index: 150;
 }
 .cart{
-    display: none;
+    display: block;
     font-size: 30px;
     position: fixed;
     padding: 10px;
     top: 0;
     bottom: 0;
     right: 10px;
-    color: $anchor-color-hover;
+    color: $anchor-text-color;
+    z-index: 150;
+
+    &:hover{
+        color: $anchor-color-hover;
+    }
 }
 }
 .nav-menu {
-    @include flexible ();
-    // display: flex;
-    // justify-content: space-around;
+    @include flexible(start, space-around);
     flex-flow: row wrap;
     background: url(./images/overlay.png) $menu-bg-color;
     list-style: none;
@@ -57,11 +60,20 @@
     &+label {
         color: $anchor-text-color;
     }
+
+    &:checked+.cart {
+        color: $anchor-color-hover;
+        font-style: normal;
+    }
+
+    &+.cart {
+        color: $anchor-text-color;
+    }
 }
 
 @media (max-width: 767px) {
     .nav-menu {
-        @include flexible ();
+        @include flexible(center, space-around);
         flex-flow: column wrap;
         // justify-content: space-around;
         padding: 0;
@@ -80,7 +92,7 @@
     }
 
     .navbar {
-        @include flexible ();
+        @include flexible(start, space-around);
         display: block;
         background: $menu-bg-color;
         height: 50px;
@@ -91,9 +103,9 @@
             display: block;
         }
 
-        & .cart {
-            display: block;
-        }
+        // & .cart {
+        //     display: block;
+        // }
 
         & input[type="checkbox"]:checked~.nav-menu {
             display: flex;

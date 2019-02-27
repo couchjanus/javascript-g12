@@ -16,32 +16,114 @@
             <label class='label' for="menu-trigger">
                 <i class="fas fa-align-justify"></i>
             </label>
-            <span class="cart"><i class="fas fa-cart-plus"></i></span>
+            <span class="cart" id="cart-toggle"><i class="fas fa-cart-plus"></i></span>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#">Home</a></li>
                 <li class="nav-item"><a href="#">About</a></li>
                 <li class="nav-item"><a href="#">Blog</a></li>
                 <li class="nav-item"><a href="#">Contact</a></li>
-                <li class="nav-item"><a href="#"><i class="fas fa-cart-plus" id="cart-toggle"></i></a></li>
             </ul>
         </nav>
     </header>
 
 
     <main class="main" id="main">
-        main
+         <!-- Main -->
+    
+        <article class="grid-item">
+            <div class="product-wrapper">
+                <div class="product">
+                    <p class="product-name">Very&nbsp;Nice&nbsp;Cat</p>
+                    <div class="icon">
+                        <div class="icon-background"></div>
+                        <span class="shopping-cart">
+                            <i class="fas fa-cart-plus"></i>
+                        </span>
+                    </div>
+                    <div class="product-picture">
+                        <img src="images/cat3.jpg" alt="Nice Cat" />
+                    </div>
+                    <div class="product-menu">
+                        <div class="product-price">
+                            $9.99
+                        </div>
+                        <div class="buy-now">
+                            Buy now!
+                        </div>
+                        <div class="product-detail">
+                            Detail
+                        </div>
+
+                        <div class="how-many">
+                            <div class="quantity-input">
+                                <input class="minus btn" type="button" value="-">
+                                <input class="input-text quantity text" value="3" size="4">
+                                <input class="plus btn" type="button" value="+">
+                            </div>
+                        </div>
+                        <div class="cancel">
+                            Cancel
+                        </div>
+                        <div class="add-to-cart">
+                            Add to Cart!
+                        </div>
+                    </div>
+                </div>
+                <div class="product-back">
+                    <span class="check">
+                        <i class="fa fa-check fa-4x"></i>
+                        <p>Success!</p>
+                    </span>
+
+                </div>
+            </div>
+        </article>
+
 
     </main>
 
     <aside class="aside">
-        aside
+        <!-- Aside Area Start -->
+        <div id="cart-sidebar" class="cart--sidebar">
+            <h2>Cart</h2>
+            <!-- cart-items start-->
+            <ul class="cart-items">
+                <li>
+                    <span class="item-quantity">1x</span> <span class="item-name">Product Name</span>
+                    <div class="item-price">$9.99</div>
+                    <a href="#0" class="item-remove"></a>
+                </li>
+            </ul>
+            <!-- cart-items end -->
+
+            <div class="cart-total">
+                <p>Total <span>$39.96</span></p>
+            </div> <!-- cart-total -->
+
+            <a href="#" class="checkout-button">Checkout</a>
+        </div> <!-- cart end -->
+        <!-- Aside Area end -->
     </aside>
 
     <footer class="footer">
-        footer
+        
+            <div class="footer-socials">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-google-plus"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+                <a href="#"><i class="fab fa-reddit"></i></a>
+            </div>
+    
+            <div class="footer-bottom">
+                &copy; 2020. All rights reserved.<br>
+                Design made by <a href="#">Couch Janus</a> <address>NAU, Kyiv, Ukraine </address>
+            </div>
+    
     </footer>
 
-    <script src=./js/index.js async defer></script>
+    <script src=./js/index.js></script>
 </body>
 
 </html>

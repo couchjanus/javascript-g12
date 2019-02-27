@@ -11,9 +11,7 @@ body{
 
 .aside{
     grid-area: aside;
-    background-color: brown; 
     overflow: auto;
-    // width: $sidebar-width;
     width: 0;
     transition: left $animation-duration $animation-ease, width $animation-duration $animation-ease;
     z-index: 10;
@@ -21,23 +19,18 @@ body{
 
 .header{
     grid-area: header;
-    background-color: rgb(245, 202, 12);
 }
   
 .main{
     grid-area: main;
-    background-color: maroon;
-}
-  
-.footer{
-    grid-area: footer;
-    background-color: #992;
-}
+}  
 
 .show-sidebar {
     width: $sidebar-width;
 }
+
 .footer {
+    grid-area: footer;
     width: 100%;
     padding: 0;
     font-size: 1.2em;
@@ -60,9 +53,7 @@ body{
             line-height: 45px;
             width: 45px;
             height: 45px;
-            @include border-radius(50%);
-            // border-radius: 50%;
-
+            border-radius: 50%;
             &:hover {
                 background-color: $anchor-color-hover;
                 color: $menu-bg-color;
@@ -75,120 +66,175 @@ body{
     }
 }
 
-.grid-container {
-    margin: 1rem 0.5em;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.grid-container .grid-item {
+.grid-item {
     display: flex;
+    flex: 1 1 240px;
     justify-content: center;
     align-items: center;
+    margin: 0 10px;
+
+    & img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        max-width: 100%;
+    }
 }
 
-.grid-container article img {
-    padding: 0;
-    max-width: 100%;
-}
-
-.product {
+.product{
     background-color: $product-bg-color;
     text-align: center;
-    @include border-radius(10px);
-    @include box-shadow($box-shadow);
-    // box-shadow: $box-shadow;
-    // border-radius: 10px;
-    width: 250px;
+    border-radius: 10px;
+    width: 240px;
     height: 360px;
     position: relative;
     overflow: hidden;
+    box-shadow: $box-shadow;
+
+    .product-name {
+        padding: 0.5rem 0;
+        font-size: 1em;
+        color: $main-color;
+        transition: all .3s;
+        background-color: $product-bg-color;
+    }
+
+    .product-menu {
+        width: 100%;
+        height: 360px;
+        position: absolute;
+        transition: all .7s;
+        top: 80%;
+        background-color: $product-bg-color;
+
+        .how-many {
+            clear: both;
+            width: 100%;
+            height: 72px;
+            line-height: 72px;
+            border-top: solid 1px $product-border-color;
+            border-bottom: solid 1px $product-border-color;
+        }
+
+        .product-price, .product-detail, .buy-now, .cancel, .add-to-cart {
+            display: inline-table;
+            position: relative;
+            margin: 0;
+            width: 48%;
+            height: 72px;
+            line-height: 72px;
+            font-size: 1.1rem;
+            color: $main-color;
+            border-top: solid 1px $product-border-color;
+            transition: all .3s;
+        }
+
+        .buy-now, .product-detail {
+            border-left: solid 1px $product-border-color;
+            cursor: pointer;
+            float: right;
+            width: 50%;
+        }
+
+        .buy-now:hover, .product-detail:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .product-detail{
+            display: none;
+        }
+
+        .cancel {
+            width: 50%;
+            background-color: red;
+            color: white;
+            float: left;
+            cursor: pointer;
+          }
+        
+        .cancel:hover {
+            background-color: white;
+            color: red;
+        }
+        
+        .add-to-cart {
+            width: 50%;
+            background-color: $product-bg-color;;
+            float: right;
+            cursor: pointer;
+        }
+        .add-to-cart:hover {
+            background-color: red;
+            color: white;
+        }
+          
+    }
+
+    .icon {
+        display: block;
+        transition: all .3s;
+        .icon-background {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            background-color: $product-bg-color;
+            position: absolute;
+            top: 0px;
+            left: -40px;
+            transform: skewX(-45deg);
+            
+        }
+        .shopping-cart {
+            color: white;
+            display: block;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+        }
+    }
+
+    .product-picture {
+        overflow:hidden;
+        top: 20%;
+        transition: all .3s;
+        img{
+            max-width:100%;
+            min-width: 240px;
+            margin-top:10px;
+            
+          }
+      }
+
+
 }
 
 .product-back {
-    width: 250px;
+    width: 240px;
     height: 360px;
-    // border-radius: 10px;
-    @include border-radius(10px);
+    border-radius: 10px;
     background-color: $product-bg-color;
     color: #EE3B24;
     text-align: center;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    // box-shadow: $box-shadow;
-    @include box-shadow($box-shadow);
-    @include backface-visibility(hidden);
-    // backface-visibility: hidden;
+    box-shadow: $box-shadow;
+    backface-visibility: hidden;
     z-index: -1;
     top: -360px;
     transform: rotateY(180deg);
 }
 
-.product-name {
-    padding: 0.5rem 0;
-    font-size: 1em;
-    color: $menu-bg-color;
-    background-color: $product-bg-color;
-}
-
-.product-menu {
-    width: 100%;
-    @include flexible();
-    // display: flex;
-    // justify-content: space-between;
-    height: 360px;
-    background-color: $product-bg-color;
-    color: $menu-bg-color;
-    position: absolute;
-    top: 80%;
-    transition: all .7s;
-}
-
-.product-button {
-    position: relative;
-    font-size: 1.1rem;
-    padding-top: 20px;
-    width: 50%;
-    color: $menu-bg-color;
-    border-top: solid 1px $product-border-color;
-}
-
-.product-price {
-    @extend .product-button;
-}
-
-.buy-now {
-    @extend .product-button;
-    border-left: solid 1px $product-border-color;
-    cursor: pointer;
-    transition: all .3s;
-
-    &:hover {
-        background-color: $anchor-color-hover;
-        color: $menu-bg-color;
-    }
-}
-
-.product-detail,
-.cancel,
-.add-to-cart,
-.how-many {
-    display: none;
-}
-
 .product-wrapper {
-    -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
     display: inline-block;
     margin: 1em;
     height: 360px;
-
-    @include transform-style(preserve-3d);
-    // -webkit-transform-style: preserve-3d;
-    //         transform-style: preserve-3d;
-
+    transform-style: preserve-3d;
 }
+
 
 .product .icon {
     display: block;

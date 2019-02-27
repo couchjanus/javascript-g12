@@ -1,61 +1,94 @@
 'use strict';
+import $ from 'jquery';
 
-console.log(document.body); // BODY
-console.log(document.title); // title
+window.jQuery = window.$ = $;
 
-console.log(document['body']); // BODY
-console.log(document['title']); // title
+console.log(jQuery('h1'));
+        
+// JQuery Получить DOM-элемент body
+console.log($("body"));
 
-// ================nodeType==========================
-console.log("тип узла: " + document.nodeType);
-// тип узла: 9 
+// JQuery Получить все элементы div
+console.log($('div'));
 
-// ================nodeName==========================
-console.log("Имя узла: " + document.nodeName);
-// Имя узла: #document
+console.log($('#cart-sidebar'));
 
-// ================nodeValue==========================
-console.log("значение узла: " + document.nodeValue);
-// значение узла: null
+// JQuery Получить все элементы span внутри div
+console.log($($('div span')));
+      
+// JQuery Получить все элементы span внутри div
+console.log($($($('div').find('span'))));
+       
+// JQuery Получить все элементы span внутри div
+console.log($($('div > span')));
 
-// ================Доступ к элементам==========================
-console.log("Document Element: " + document.documentElement);
-// Document Element: [object HTMLHtmlElement]
-console.log("Body Element: " + document.body);
-// Body Element: [object HTMLBodyElement], если есть в документе (обязан быть). 
 
-// Все дочерние элементы, включая текстовые находятся в массиве childNodes.
-console.log('Все дочерние элементы ', document.body.childNodes);
+// Например, выбрать все элементы, имеющие класс btn:
+console.log($(".btn"));
+// также можно записать следующим образом:
+console.log($("*.btn"));
 
-// имя тага
-console.log(document.body.tagName); // BODY
 
-// Можно поменять цвет BODY: -->
-document.body.style.backgroundColor = 'red';
+// JQuery Получить элемент перед .plus
+console.log($('.plus').prev());
 
-// Можно поменять цвет текста:
-document.body.style.color = 'white';
+// JQuery Получить элемент после #banner
+console.log($('.minus').next());
 
-// innerHTML
-// document.body.innerHTML = '<h1 id="bye" class="see">Bye! See ya!</h1>';
 
-// getElementById
-// document.getElementById("bye").style.color ="yellow";
 
-document.getElementById("main").innerHTML = '<h1 id="bye" class="see">Bye! See ya!</h1><div id="content-holder"><div id="content">Элемент</div></div>';
-document.getElementById("bye").style.color ="yellow";
+$(document).ready(
+    function(){
+        console.log('Bla, Bla, Bla...');
+        // $('p').css('border', '3px solid blue');
+        // // получим значение background у элемента a
+        // var background = $('.nav li a').css('background-color');
+        // console.log(background);     // выведем его в консоль
 
-document.getElementById('content').innerHTML = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero tempore necessitatibus obcaecati accusamus ullam autem ut iste, vel suscipit adipisci officiis doloribus dolores quasi minus pariatur ex omnis modi neque?'; 
-document.getElementById('content-holder').style.color ="white"; 
+        // var cssProperties = $('p').css(['width','height']);
+        // console.log(cssProperties);
+        // $("a").css("color", "red");
 
-// getElementsByTagName
-document.body.getElementsByTagName('h1')[0].innerHTML="Hello world";
+        // $('div').css({
+        //     'color':'green',
+        //     'font-size':'16px'
+        // });
 
-// querySelectorAll
-document.querySelectorAll('h1')[0].textContent = 'Hello Text Content!';
+        // var newCSS = {
+        //     'color':'green',
+        //     'font-size':'16px'
+        // };
+        
+        // $('p').css(newCSS);
 
-// querySelector
-document.querySelector('h1').textContent = 'Hello JavaScript!';
+        // $('p').css({
+        //     "padding-left": "+=10",
+        //     "padding-right":"+=10", 
+        //     "padding-top": "+=10"
+        // });
+            
 
-// getElementsByClassName
-document.getElementsByClassName('see')[0].innerHTML = 'Hello JavaScript ClassName!';
+
+    }
+);
+
+// $(document).ready(ready);
+ 
+
+
+function square(x) {
+    return x * x;
+}
+
+let i = 2;
+
+function setMessageText(msg) {
+    $('.footer').text(msg);
+}
+
+// setMessageText("The Square of " + i + " is " + square(i));
+
+// $('.footer').click(() => {
+//     i++;
+//     setMessageText("The Square of " + i + " is " + square(i));
+// })
