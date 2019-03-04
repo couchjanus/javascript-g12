@@ -171,134 +171,53 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/@fortawesome/fontawesome-free/css/all.css":[function(require,module,exports) {
+},{"./bundle-url":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"sass/main.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../webfonts/fa-brands-400.eot":[["fa-brands-400.7b5acd02.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"./../webfonts/fa-brands-400.woff2":[["fa-brands-400.34cc846b.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"./../webfonts/fa-brands-400.woff":[["fa-brands-400.75159956.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"./../webfonts/fa-brands-400.ttf":[["fa-brands-400.f885063e.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"./../webfonts/fa-brands-400.svg":[["fa-brands-400.1f0eb095.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"./../webfonts/fa-regular-400.eot":[["fa-regular-400.d4b9b17f.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"./../webfonts/fa-regular-400.woff2":[["fa-regular-400.82c42f2f.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"./../webfonts/fa-regular-400.woff":[["fa-regular-400.adc5c7aa.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"./../webfonts/fa-regular-400.ttf":[["fa-regular-400.b073eab5.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"./../webfonts/fa-regular-400.svg":[["fa-regular-400.16d6ac71.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"./../webfonts/fa-solid-900.eot":[["fa-solid-900.0b60ff24.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"./../webfonts/fa-solid-900.woff2":[["fa-solid-900.55d5ef42.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"./../webfonts/fa-solid-900.woff":[["fa-solid-900.f824330b.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"./../webfonts/fa-solid-900.ttf":[["fa-solid-900.47a039f3.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"./../webfonts/fa-solid-900.svg":[["fa-solid-900.d08d5f59.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/normalize.css/normalize.css":[function(require,module,exports) {
+},{"./images/cat1.jpg":[["cat1.a18b8267.jpg","sass/images/cat1.jpg"],"sass/images/cat1.jpg"],"./images/cat2.jpg":[["cat2.89a965ca.jpg","sass/images/cat2.jpg"],"sass/images/cat2.jpg"],"./images/cat3.jpg":[["cat3.6ff286f4.jpg","sass/images/cat3.jpg"],"sass/images/cat3.jpg"],"./images/cat4.jpg":[["cat4.ec2ac807.jpg","sass/images/cat4.jpg"],"sass/images/cat4.jpg"],"./images/cat5.jpg":[["cat5.77e2cbd7.jpg","sass/images/cat5.jpg"],"sass/images/cat5.jpg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/vanilacarousel.js":[function(require,module,exports) {
+"use strict";
 
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-},{"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"sass/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"@fortawesome/fontawesome-free/css/all.css":"../node_modules/@fortawesome/fontawesome-free/css/all.css","normalize.css":"../node_modules/normalize.css/normalize.css","./images/overlay.png":[["overlay.b2a30f3f.png","sass/images/overlay.png"],"sass/images/overlay.png"],"./images/cat1.jpg":[["cat1.a18b8267.jpg","sass/images/cat1.jpg"],"sass/images/cat1.jpg"],"./images/cat2.jpg":[["cat2.89a965ca.jpg","sass/images/cat2.jpg"],"sass/images/cat2.jpg"],"./images/cat3.jpg":[["cat3.6ff286f4.jpg","sass/images/cat3.jpg"],"sass/images/cat3.jpg"],"./images/cat4.jpg":[["cat4.ec2ac807.jpg","sass/images/cat4.jpg"],"sass/images/cat4.jpg"],"./images/cat5.jpg":[["cat5.77e2cbd7.jpg","sass/images/cat5.jpg"],"sass/images/cat5.jpg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/calc.js":[function(require,module,exports) {
 (function () {
-  "use strict";
+  document.querySelector('.carousel-item').classList.add('active');
+  var total = document.querySelectorAll('.carousel-item').length;
+  var current = 0;
+  document.getElementById('moveRight').addEventListener('click', function () {
+    var next = current;
+    current = current + 1;
+    setSlide(next, current);
+  });
+  document.getElementById('moveLeft').addEventListener('click', function () {
+    var prev = current;
+    current = current - 1;
+    setSlide(prev, current);
+  });
 
-  var el = function el(element) {
-    if (element.charAt(0) === "#") {
-      return document.querySelector(element);
+  function setSlide(prev, next) {
+    var slide = current;
+
+    if (next > total - 1) {
+      slide = 0;
+      current = 0;
     }
 
-    return document.querySelectorAll(element);
-  };
-
-  var viewer = el("#viewer"),
-      equals = el("#equals"),
-      numbers = el(".num"),
-      operators = el(".ops"),
-      secondNumber = "",
-      firstNumber = "",
-      resultNum,
-      operator;
-
-  var setNumber = function setNumber() {
-    if (resultNum) {
-      secondNumber = this.getAttribute("data-num");
-      resultNum = "";
-    } else {
-      secondNumber += this.getAttribute("data-num");
+    if (next < 0) {
+      slide = total - 1;
+      current = total - 1;
     }
 
-    viewer.innerHTML = secondNumber; // current number
-  };
-
-  var moveNum = function moveNum() {
-    firstNumber = secondNumber;
-    secondNumber = "";
-    operator = this.getAttribute("data-ops");
-    equals.setAttribute("data-result", ""); // Reset result
-  };
-
-  var displayNum = function displayNum() {
-    firstNumber = parseFloat(firstNumber);
-    secondNumber = parseFloat(secondNumber);
-
-    switch (operator) {
-      case "plus":
-        resultNum = firstNumber + secondNumber;
-        break;
-
-      case "minus":
-        resultNum = firstNumber - secondNumber;
-        break;
-
-      case "times":
-        resultNum = firstNumber * secondNumber;
-        break;
-
-      case "divided by":
-        resultNum = firstNumber / secondNumber;
-        break;
-
-      default:
-        resultNum = secondNumber;
-    }
-
-    if (!isFinite(resultNum)) {
-      if (isNaN(resultNum)) {
-        resultNum = "You broke it!";
-      } else {
-        resultNum = "Look at what you've done";
-        el('#calculator').classList.add("broken");
-        el('#reset').classList.add("show");
-      }
-    } // Display result
-
-
-    viewer.innerHTML = resultNum;
-    equals.setAttribute("data-result", resultNum); // reset firstNumber
-
-    firstNumber = 0;
-    secondNumber = resultNum;
-  }; // Clear button
-
-
-  var clearAll = function clearAll() {
-    firstNumber = "";
-    secondNumber = "";
-    viewer.innerHTML = "0";
-    equals.setAttribute("data-result", resultNum);
-  };
-
-  for (var i = 0, l = numbers.length; i < l; i++) {
-    numbers[i].onclick = setNumber;
+    document.querySelectorAll('.carousel-item')[prev].classList.remove('active');
+    document.querySelectorAll('.carousel-item')[slide].classList.add('active');
   }
-
-  for (var i = 0, l = operators.length; i < l; i++) {
-    operators[i].onclick = moveNum;
-  }
-
-  equals.onclick = displayNum;
-  el("#clear").onclick = clearAll;
-
-  el("#reset").onclick = function () {
-    window.location = window.location;
-  };
 })();
 },{}],"js/index.js":[function(require,module,exports) {
 'use strict';
 
 require("../sass/main.scss");
 
-require("./calc");
-},{"../sass/main.scss":"sass/main.scss","./calc":"js/calc.js"}],"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("./vanilacarousel");
+},{"../sass/main.scss":"sass/main.scss","./vanilacarousel":"js/vanilacarousel.js"}],"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -325,7 +244,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32955" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35289" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
