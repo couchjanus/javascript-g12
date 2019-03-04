@@ -1,103 +1,108 @@
-"use strict";
+(function () {
+    "use strict";
 
-document.getElementById("main").innerHTML = 
-`<form style="justify-items: center; display: grid; grid-template-columns: 100px 100px 100px; grid-template-rows: 50px 50px 50px 50px;">
-    <input type="text" id="res" value="" style="grid-column: 2/3; grid-row: 1 / 2;">
-    <div style="justify-items: center; align-items: center; display: grid; grid-template-columns: subgrid; grid-column: 1 / 4; grid-row: 2 / 5;">
-    <input type="button" value="0" id="b0" style="grid-column: 1;">
-    <input type="button" value="1" id="b1" style="grid-column: 2;">
-    <input type="button" value="2" id="b2" style="grid-column: 3;">
-    <input type="button" value="3" id="b3" style="grid-column: 1;">
-    <input type="button" value="4" id="b4" style="grid-column: 2;">
-    <input type="button" value="5" id="b5" style="grid-column: 3;">
-    <input type="button" value="6" id="b6" style="grid-column: 1;">
-    <input type="button" value="7" id="b7" style="grid-column: 2;">
-    <input type="button" value="8" id="b8" style="grid-column: 3;">
-    <input type="button" value="9" id="b9" style="grid-column: 1;">
-    <input type="button" value="+" id="plus" style="grid-column: 2;">
-    <input type="button" value="=" id="equal" style="grid-column: 3;">
-    </div>
-</form>`;
+    var el = function (element) {
+        if (element.charAt(0) === "#") { 
+            return document.querySelector(element); 
+        }
+        return document.querySelectorAll(element);
+    };
 
-function square(number) {
-    return number * number;
-}
+    var viewer = el("#viewer"), 
+        equals = el("#equals"), 
+        numbers = el(".num"), 
+        operators = el(".ops"), 
+        secondNumber = "", 
+        firstNumber = "", 
+        resultNum, 
+        operator; 
 
-function sum(number1 , number2) {
-    return number1 + number2;
-  }
+    
+    var setNumber = function () {
+        if (resultNum) { 
+            secondNumber = this.getAttribute("data-num");
+            resultNum = "";
+        } else { 
+            secondNumber += this.getAttribute("data-num");
+        }
+        viewer.innerHTML = secondNumber; // current number
+    };
+    
+    var moveNum = function () {
+        firstNumber = secondNumber;
+        secondNumber = "";
+        operator = this.getAttribute("data-ops");
+        equals.setAttribute("data-result", ""); // Reset result
+    };
 
-sum(1, 2);
+    
+    var displayNum = function () {
+        firstNumber = parseFloat(firstNumber);
+        secondNumber = parseFloat(secondNumber);
 
-function calcD(a, b, c) {
-    return b*b - 4*a*c;
-}
+        switch (operator) {
+            case "plus":
+                resultNum = firstNumber + secondNumber;
+                break;
 
-var test = calcD(-4, 2, 1);
-console.log(test); // 20
+            case "minus":
+                resultNum = firstNumber - secondNumber;
+                break;
 
-const squared = (a) => {
-    return a * a;
-};
+            case "times":
+                resultNum = firstNumber * secondNumber;
+                break;
 
-const newSquared = squared(3);
-console.log(newSquared);
+            case "divided by":
+                resultNum = firstNumber / secondNumber;
+                break;
 
-var factorial = function fac(n) { 
-    return n < 2 ? 1 : n * fac(n - 1); 
-};
-console.log(factorial(3));
+            default:
+                resultNum = secondNumber;
+        }
 
-// ===================calc=============================
-var a, b;
+        if (!isFinite(resultNum)) {
+            if (isNaN(resultNum)) { 
+                resultNum = "You broke it!";
+            } else { 
+                resultNum = "Look at what you've done";
+                el('#calculator').classList.add("broken"); 
+                el('#reset').classList.add("show"); 
+            }
+        }
 
-var res = document.getElementById('res');
-var b1 = document.getElementById('b1');
-var b2 = document.getElementById('b2');
-var b3 = document.getElementById('b3');
-var b4 = document.getElementById('b4');
-var b5 = document.getElementById('b5');
-var b6 = document.getElementById('b6');
-var b7 = document.getElementById('b7');
-var b8 = document.getElementById('b8');
-var b9 = document.getElementById('b9');
-var b0 = document.getElementById('b0');
+        // Display result
+        viewer.innerHTML = resultNum;
+        equals.setAttribute("data-result", resultNum);
 
-var plus = document.getElementById('plus');
-var equal = document.getElementById('equal');
+        // reset firstNumber
+        firstNumber = 0;
+        secondNumber = resultNum;
 
-b1.onclick = function(){
-    res.value = b1.value;
-    a = parseInt(b1.value);
-};
+    };
 
-b2.onclick = function(){
-    if (a===undefined){
-        res.value = b2.value;
-        a = parseInt(b2.value);
-    } else{
-        res.value += b2.value;
-        b = parseInt(b2.value);
+    // Clear button
+    var clearAll = function () {
+        firstNumber = "";
+        secondNumber = "";
+        viewer.innerHTML = "0";
+        equals.setAttribute("data-result", resultNum);
+    };
+
+    for (var i = 0, l = numbers.length; i < l; i++) {
+        numbers[i].onclick = setNumber;
     }
-};
-
-b3.onclick = function(){
-    if (a===undefined){
-        res.value = b3.value;
-        a = parseInt(b3.value);
-    } else{
-        res.value += b3.value;
-        b = parseInt(b3.value);
+   
+    for (var i = 0, l = operators.length; i < l; i++) {
+        operators[i].onclick = moveNum;
     }
-};
-              
-plus.onclick = function(){
-    res.value += plus.value;
 
-};
+    equals.onclick = displayNum;
 
-equal.onclick = function(){
-    res.value = a+b;
-    a = undefined;
-    b = undefined;
-};
+    el("#clear").onclick = clearAll;
+
+    el("#reset").onclick = function () {
+        window.location = window.location;
+    };
+
+})();

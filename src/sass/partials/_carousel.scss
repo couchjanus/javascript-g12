@@ -1,14 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+#main-content{
+  display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(900px, 1fr));
+	grid-auto-rows: minmax(550px, auto);
+	padding: 10px;
+}  
 
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
-
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
+.carousel-wrapper {
       margin: 0;
       padding: 0;
       width: 100%;
@@ -19,9 +16,6 @@
       -webkit-justify-content: center;
       align-items: center;
       -webkit-align-items: center;
-    }
-
-    body {
       background-color: #eaeaea;
     }
 

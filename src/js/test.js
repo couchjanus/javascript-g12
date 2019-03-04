@@ -3,219 +3,115 @@ import $ from 'jquery';
 
 window.jQuery = window.$ = $;
 
-// Создание элементов массива возможно несколькими способами:
+// Для создания элементов используется метод:
+var child = document.createElement("div");
 
-// var earth = new Array(4); /* массив из 4-х элементов*/
-// earth[0] = "Earth";
-// earth[1] = "24 h";
-// earth[2] = 6378;
-// earth[3] = 365.25;
+// Для создания текстового узла объект document имеет метод:
+var childText = document.createTextNode("Hello Element!");
 
-// var earth = new Array("Earth", "24 h", 6378, 365.25);
+var element = document.createElement("article");
+element.innerHTML = "<h2>Hello Article!</h2>";
 
-// var earth = new Array(); // пустой массив
-// var earth = []; // пустой массив
+// ========================appendChild================================
+// Добавляет элемент в конец списка дочерних элементов родителя. Вставляемый узел становится последним в списке дочерних узлов элемента.
+child.appendChild(childText);
+var childElement = element.appendChild(child);
 
-// earth.xtype = "Solar";
-// earth.xday = "24 h";
-// earth.radius = 6378;
-// earth.period = 365.25;
+var aOne = document.createElement('a');
+aOne.href = "http://google.com"
+aOne.innerText = "Goodling!"
+document.querySelector('.footer').appendChild(aOne);
 
-// var country = ["UK", "USA", "GB"];
+// ======================insertBefore=========================
+var parent = document.querySelector('.footer');
+// Вставка в самое начало родителя, то есть перед первым узлом
+parent.insertBefore(element, parent.firstChild);
 
-// Если вы указываете числа или значения true или false при определении массива, 
-// то тип переменной будет числовой или булев тип, а не строковый.
+// Вставка в конец родителя, аналогично appendChild()
+parent.insertBefore(element, null);
 
-// var arr = ['первый элемент', 'второй элемент'];
-// console.log(arr[0]); // напечатает 'первый элемент'
-// console.log(arr[1]); // напечатает 'второй элемент'
+// Вставка перед конкретным элементом parentChild
+var parentChild = document.querySelector('.footer-socials');
+parent.insertBefore(element, parentChild);
 
+// Вставка после конкретного элемента parentChild
+// здесь происходит вставка перед тем узлом, который находится сразу за узлом parentChild
+parent.insertBefore(element, parentChild.nextSibling);
 
-// доступ к элементам массива в javaScript:
-// var mas = new Array(1, 25, 'Привет');
-// mas[0] = 'Пока';
-// mas[1] = 35;
+//====================replaceChild==========================
 
+// Создаем новый пустой элемент
+var sp1 = document.createElement("span");
 
-// Свойство массивов length взаимосвязано с числовыми свойствами.
-// var fruits = [];
-// fruits.push('банан', 'яблоко', 'персик');
-// console.log(fruits.length); // 3
+// Присваиваем ему id 'newSpan'
+sp1.setAttribute("id", "newSpan");
 
-// Длина length – не количество элементов массива, а последний индекс + 1.
-// var arr = [];
-// arr[1000] = true;
-// console.log(arr.length); // 1001
+// Создаем строку.
+var sp1_content = document.createTextNode("New replacement span element.");
 
+// Добавляем контент в созданный нами узел
+sp1.appendChild(sp1_content);
 
-// При уменьшении length массив укорачивается.
-// var arr = [1, 2, 3, 4, 5];
-// arr.length = 2; // укоротить до 2 элементов
-// console.log(arr[3]);
-// arr.length = 5; // вернуть length обратно, как было
-// console.log(arr[3]); // undefined: значения не вернулись
+// создаем ссылку на элемент который будем заменять
+var sp2 = document.querySelector('.footer-socials');
+var parentDiv = sp2.parentNode;
 
-//   Массивы в JavaScript индексируются с нуля: первый элемент массива имеет индекс, равный 0, а индекс последнего элемента равен значению свойства массива length минус 1.
-// var arr = ['первый элемент', 'второй элемент'];
-// console.log(arr[0]); // напечатает 'первый элемент'
-// console.log(arr[1]); // напечатает 'второй элемент'
-// console.log(arr[arr.length - 1]); // напечатает 'второй элемент'
+// заменяем существующий элемент sp2 на созданный нами sp1
+// parentDiv.replaceChild(sp1, sp2);
 
-// Удаление элементов массива
-// в javascript удалить элемент массива можно при помощи оператора delete:
+// =================insertAdjacentHTML===========================
 
-// var myColors = new Array("red", "green", "blue");
-// delete myColors[1];
-// console.log(myColors); // red,,blue
+var list = document.querySelector('.footer-socials');
 
-// Самый простой способ очистить массив - это arr.length=0.
+/* добавляем новый элемент */
+list.insertAdjacentHTML('beforeend', '<a href="#"><i class="fab fa-github"></i></a>'); 
 
-// вывести элементы массива на экран, в качестве конечного значения счетчика цикла использовать свойство length
+// ============================text/template===========================
 
-// for (var i = 0; i < arr.length; i++) {
-//     console.log(arr[i]);
-// }
-// console.log(arr.length);
+var templateSource = document.getElementById("template-item").innerHTML;       
 
+var article = document.createElement("article");
 
-// вывод элементов массива с использованием обычного цикла for:
+article.innerHTML = document.getElementById("template-item").innerHTML;
 
-// var mas = new Array(1, 25, 'Привет');
-// mas[0] = 'Пока';
-// mas[1] = 35;
+document.querySelector('.footer').appendChild(article);
 
-// function showElement() {
-//     for (i = 0; i < 3; i++) {
-//         console.log(mas[i]);
-//     }
-// }
-// showElement();
+// ====================template====================================
+
+let template =  document.getElementById("cells-to-repeat").content; 
+
+document.querySelector('.table-row').append(document.importNode(template, true));
+
+for(let i=0; i<6; i++){
+    document.querySelector('.table-row').append(document.importNode(template, true));
+}
 
 
-// использование цикла for in для перебора элементов массива:
+// ============================jQuery===================================
 
-// function showElement() {
-//     for (var i in mas) {
-//         console.log(mas[i]);
-//     }
-// }
-// showElement();
+// Очень часто встречающийся подход с использованием jQuery:
 
+// $('.footer').append('<a href="http://google.com">Googling!</a>');
 
-// перебор элементов массива buy:
-var buy = document.getElementsByClassName('buy-now');
+// кроссбраузерный и безопасный вариант:
 
-// console.log('buy.length = ', buy.length);
+$('<a>', { 
+    href: 'http://google.com', 
+    text: 'Googling!'
+    }).appendTo('.footer');
+    
 
-// for (let i = 0; i < buy.length; i++) {
-//     console.log(buy[i]);
-// }
+// оригинал элемента с закрепленным за ним массивом
+var $elem = $('<div>').data("arr",[1,2,3]);
 
-// for (let i = 0; i < buy.length; i++) {
-//     buy[i].addEventListener('click', function (e) {
-//         console.log(e);
-//     });
-// }
+// создадим копию элемента
+// и перепишем в нем arr
+let $clone = $elem.clone(true).data("arr", $.extend([], $elem.data("arr"))); 
+console.log($clone.data("arr"));
 
+let $template = $($('#cartItem').html());
+$template.find(".item-quantity").text(33);
+$template.find('.item-price').text(1234);
+$(".cart-items").append($template);
 
-// for (let i = 0; i < buy.length; i++) {
-//     buy[i].addEventListener('click', function (e) {
-//         console.log(e.target);
-//         e.target.style.display = 'none';
-//     });
-// }
-
-
-// for (let i = 0; i < buy.length; i++) {
-//     buy[i].addEventListener('click', function (e) {
-//         document.querySelector('.product .product-name').style.display = 'none';
-//         document.querySelector('.product .icon').style.display = 'none';
-//         e.target.style.display = 'none';
-//         document.querySelector('.product .product-detail').style.display = 'block';
-//         document.querySelector('.product-menu').style.top = '40%';
-//     });
-// }
-
-// Свойство parentNode
-
-// for (let i = 0; i < buy.length; i++) {
-//     buy[i].addEventListener('click', function (e) {
-//         console.log(e.target.parentNode);
-//         e.target.style.display = 'none';
-//     });
-// }
-
-// for (let i=0; i<buy.length; i++ ) {
-//  buy[i].addEventListener('click', function (e) {
-//    console.log(e.target.parentNode);
-//    e.target.parentNode.parentNode.querySelector('.product .product-name').style.display = 'none';
-//    e.target.parentNode.parentNode.querySelector('.product .icon').style.display = 'none';
-//    e.target.style.display = 'none';
-//    e.target.parentNode.parentNode.querySelector('.product .product-detail').style.display = 'block';
-//    e.target.parentNode.parentNode.querySelector('.product-menu').style.top = '40%';
-//  });
-// }
-
-
-// for (let i=0; i<buy.length; i++ ) {
-//     buy[i].addEventListener('click', function (e) {
-//       console.log(e.target.parentNode);
-//       e.target.parentNode.parentNode.querySelector('.product .product-name').style.display = 'none';
-//       e.target.parentNode.parentNode.querySelector('.product .icon').style.display = 'none';
-//       e.target.style.display = 'none';
-//       e.target.parentNode.parentNode.querySelector('.product .product-detail').style.display = 'block';
-//       e.target.parentNode.style.top = '40%';
-//     });
-// }
-
-
-// Свойство childNodes - представление дочерних узлов.
-// var el = document.getElementsByClassName('product-menu').childNodes;
-// console.log(el);
-
-// for (let i=0; i<buy.length; i++ ) {
-//     buy[i].addEventListener('click', function (e) {
-//       console.log(e.target.parentNode);
-//       console.log(e.target.parentNode.childNodes); // length: 13
-//       console.log(e.target.parentNode.childElementCount); // 6
-//     });
-// }
-
-// Свойство Node.children возвращает коллекцию (HTMLCollection) дочерних элементов узла.
-
-// for (let i=0; i<buy.length; i++ ) {
-//     buy[i].addEventListener('click', function (e) {
-//       console.log(e.target.parentNode);
-//       console.log(e.target.parentNode.children); // length: 13
-//       console.log(e.target.parentNode.childElementCount); // 6
-//     });
-// }
-
-
-// for (let i=0; i<buy.length; i++ ) {
-//     buy[i].addEventListener('click', function (e) {
-//         console.log(e.target.parentNode);
-//         console.log(e.target.parentNode.children[2]);
-//         console.log(e.target.parentNode.querySelector('.product-detail'));
-//         console.log(e.target.parentNode.parentNode.querySelector('.product-name'));
-//         console.log(e.target.parentNode.parentNode.querySelector('.icon'));
-//     });
-// }
-
-// firstChild - первый дочерний узел элемента,
-// var el = document.getElementById('nav').firstChild;
-// console.log(el);
-
-// lastChild - последний дочерний узел.
-// el = document.getElementById('nav').lastChild;
-// console.log(el);
-
-// nextSibling - узел после элемента,
-// var el = document.getElementById('nav').nextSibling;
-// console.log(el);
-
-// previousSibling - узел до элемента.
-
-// el = document.getElementById('nav').previousSibling;
-// console.log(el);
-
+console.log($(".cart-items").html());
