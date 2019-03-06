@@ -13,30 +13,6 @@
         document.querySelector(".backdrop").classList.toggle("backdrop--open");
     });
 
-    var buy = document.getElementsByClassName('buy-now');
-
-    for (let i=0; i<buy.length; i++ ) {
-        buy[i].addEventListener('click', function (e) {
-          e.target.parentNode.parentNode.querySelector('.product-name').style.display = 'none';
-          e.target.parentNode.parentNode.querySelector('.icon').style.display = 'none';
-          e.target.style.display = 'none';
-          e.target.parentNode.querySelector('.product-detail').style.display = 'block';
-          e.target.parentNode.style.top = '40%';
-        });
-    }
-       
-    var cancel = document.getElementsByClassName('cancel');
-
-    for (let i = 0; i < buy.length; i++) {
-        cancel[i].addEventListener('click', function (e) {
-            e.target.parentNode.parentNode.querySelector('.product-name').style.display = 'block';
-            e.target.parentNode.parentNode.querySelector('.icon').style.display = 'block';
-            e.target.parentNode.querySelector('.buy-now').style.display = 'block';
-            e.target.parentNode.querySelector('.product-detail').style.display = 'none';
-            e.target.parentNode.style.top = '80%';
-        });
-    }
-
     let plus = document.getElementsByClassName('plus');
     for (let i = 0; i < plus.length; i++) {
         plus[i].addEventListener('click', function (e) {
@@ -52,108 +28,159 @@
         });
     }
 
-    var addcart = document.getElementsByClassName('add-to-cart');
+    var buy = document.getElementsByClassName('buy-now');
 
-    // for (let i = 0; i < addcart.length; i++) {
-    //     addcart[i].addEventListener('click', function (e) {
-    //         var y = 180;
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(' + y + 'deg)';
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
-    //         let content = document.getElementById("cartItem").content;
-    //         document.querySelector('.cart-items').appendChild(content);
+    function fade(item) {
+        item.classList.add('fade-active');
+        item.addEventListener('transitionend', function(){
+            item.style.display = 'none';
+            item.classList.remove('fade-active');
+        });
+    }
+
+    function fadeOut(item) {
+        let hendler  = function(){
+            item.style.display = 'none';
+            item.classList.remove('fade-active');
+            item.removeEventListener('transitionend', hendler);
+        };
+        item.classList.add('fade-active');
+        item.addEventListener('transitionend', hendler);
+    }
+
+    function fadeIn(item) {
+        let hendler  = function(){
+            item.classList.remove('fade-active');
+            item.removeEventListener('transitionend', hendler);
+        };
+        item.style.display = 'block';
+        item.classList.add('fade');
+        // item.classList.add('fade-passive');
+        // item.classList.remove('fade');
+
+        raf(function(){
+            item.classList.add('fade-passive');
+            item.classList.remove('fade');
+        });
+
+        item.addEventListener('transitionend', hendler);
+    }
+
+    function raf(fn){
+        window.requestAnimationFrame(function(){
+            window.requestAnimationFrame(function(){
+                fn();
+            });
+        });
+    }
+
+    // for (let i = 0; i < buy.length; i++) {
+    //     buy[i].addEventListener('click', function (e) {
+    //         fade(e.target.parentNode.parentNode.querySelector('.product-name'));
+    //         fade(e.target.parentNode.parentNode.querySelector('.icon'));
+    //         e.target.style.display = 'none';
+
+    //         e.target.parentNode.querySelector('.product-detail').style.display = 'block';
+    //         e.target.parentNode.style.top = '40%';
     //     });
     // }
 
+    // for (let i = 0; i < buy.length; i++) {
+    //     buy[i].addEventListener('click', function (e) {
+    //         fadeOut(e.target.parentNode.parentNode.querySelector('.product-name'));
+    //         fadeOut(e.target.parentNode.parentNode.querySelector('.icon'));
+    //         e.target.style.display = 'none';
 
-    // for (let i = 0; i < addcart.length; i++) {
-    //     addcart[i].addEventListener('click', function (e) {
-    //         var y = 180;
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(' + y + 'deg)';
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
-            
-    //         let content = document.getElementById("cartItem").content;
-    //         document.querySelector('.cart-items').append(document.importNode(content, true));
+    //         e.target.parentNode.querySelector('.product-detail').style.display = 'block';
+    //         e.target.parentNode.style.top = '40%';
     //     });
     // }
 
-    // function addProductToCart(content){
-    //     let content = document.getElementById("cartItem").content;
-    //     document.querySelector('.cart-items').append(document.importNode(content, true));
-    // }
-
-    // function addProductToCart(content){
-    //     content.querySelector('.item-name').textContent = "Red Cat";
-    //     content.querySelector('.item-quantity').textContent = 22;
-    //     content.querySelector('.item-price').textContent = 1234;
-    //     content.querySelector('.item-img img').setAttribute('src', '/images/cat3.jpg');
-    //     document.querySelector('.cart-items').append(document.importNode(content, true));
-    // }
+    var byes = Array.from(document.getElementsByClassName('buy-now'));
+    byes.forEach(function (buy) {
+        buy.addEventListener('click', function (e){
+            fadeOut(e.target.parentNode.parentNode.querySelector('.product-name'));
+            fadeOut(e.target.parentNode.parentNode.querySelector('.icon'));
+            e.target.style.display = 'none';
+            e.target.parentNode.querySelector('.product-detail').style.display = 'block';
+            e.target.parentNode.style.top = '40%';
+        });
+    });
     
-    // for (let i = 0; i < addcart.length; i++) {
-    //     addcart[i].addEventListener('click', function (e) {
-    //         var y = 180;
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(' + y + 'deg)';
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
-    //         let content = document.getElementById("cartItem").content;
-    //         addProductToCart(content);
-    //     });
-    // }
 
-    // function addProductToCart(content, item){
-    //     content.querySelector('.item-name').textContent = item.querySelector(".product-name").textContent;
-    //     content.querySelector('.item-quantity').textContent = item.querySelector(".quantity").value;
-    //     content.querySelector('.item-price').textContent = item.querySelector(".product-price").textContent;
-    //     content.querySelector('.item-img img').setAttribute('src', item.querySelector(".product-picture img").getAttribute('src'));
-    //     document.querySelector('.cart-items').append(document.importNode(content, true));
-    // }
+    var cancel = document.getElementsByClassName('cancel');
     
-    // for (let i = 0; i < addcart.length; i++) {
-    //     addcart[i].addEventListener('click', function (e) {
-    //         var y = 180;
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(' + y + 'deg)';
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
-    //         let content = document.getElementById("cartItem").content;
-    //         addProductToCart(content, e.target.parentNode.parentNode.parentNode);
+    // for (let i = 0; i < buy.length; i++) {
+    //     cancel[i].addEventListener('click', function (e) {
+    //         // e.target.parentNode.parentNode.querySelector('.product-name').style.display = 'block';
+    //         // e.target.parentNode.parentNode.querySelector('.icon').style.display = 'block';
+
+    //         fadeIn(e.target.parentNode.parentNode.querySelector('.product-name'));
+    //         fadeIn(e.target.parentNode.parentNode.querySelector('.icon'));
+    //         e.target.parentNode.querySelector('.buy-now').style.display = 'block';
+
+    //         e.target.parentNode.querySelector('.product-detail').style.display = 'none';
+    //         e.target.parentNode.style.top = '80%';
     //     });
     // }
 
+    var cancels = Array.from(document.getElementsByClassName('cancel'));
+    cancels.forEach(function (cancel) {
+        cancel.addEventListener('click', function (e){
+            fadeIn(e.target.parentNode.parentNode.querySelector('.product-name'));
+            fadeIn(e.target.parentNode.parentNode.querySelector('.icon'));
+            e.target.parentNode.querySelector('.buy-now').style.display = 'block';
+            e.target.parentNode.querySelector('.product-detail').style.display = 'none';
+            e.target.parentNode.style.top = '80%';
+        });
+    });
 
-    function addProductToCart(content, item){
+    function addProductToCart(content, item) {
         content.querySelector('.item-name').textContent = item.querySelector(".product-name").textContent;
         content.querySelector('.item-quantity').textContent = item.querySelector(".quantity").value;
         content.querySelector('.item-price').textContent = item.querySelector(".product-price").textContent;
         content.querySelector('.item-img img').setAttribute('src', item.querySelector(".product-picture img").getAttribute('src'));
         return content;
     }
-    
-    // for (let i = 0; i < addcart.length; i++) {
-    //     addcart[i].addEventListener('click', function (e) {
-    //         var y = 180;
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(' + y + 'deg)';
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
-    //         let content = document.getElementById("cartItem").content;
-    //         document.querySelector('.cart-items').append(document.importNode(addProductToCart(content, e.target.parentNode.parentNode.parentNode), true));
-    //     });
-    // }
 
     const content = document.getElementById("cartItem").content;
+    const carts = Array.from(document.getElementsByClassName('add-to-cart'));
+    carts.forEach(function (cart) {
+        cart.addEventListener('click', function (e){
+            let element = e.target.parentNode.parentNode;
+            document.querySelector('.cart-items').append(document.importNode(addProductToCart(content, element), true));
 
-    // for (let i = 0; i < addcart.length; i++) {
-    //     addcart[i].addEventListener('click', function (e) {
-    //         var y = 180;
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(' + y + 'deg)';
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
-    //         document.querySelector('.cart-items').append(addProductToCart(content.cloneNode(true), e.target.parentNode.parentNode.parentNode));
-    //     });
-    // }
+            // Поиск элемента с заданным номером
+            var imgToDrag = element.querySelector("img");
 
-    // for (let i = 0; i < addcart.length; i++) {
-    //     addcart[i].addEventListener('click', function (e) {
-    //         var y = 180;
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(' + y + 'deg)';
-    //         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
-    //         document.querySelector('.cart-items').append(document.importNode(addProductToCart(content, e.target.parentNode.parentNode.parentNode), true));
-    //     });
-    // }
+            if (imgToDrag) {
+                var imgClone = imgToDrag.cloneNode(true);
+                imgClone.style.left = 0;
+                imgClone.style.top = 0;
+                imgClone.classList.add('offset-img');
+                imgClone.style.height = '150px';
+                imgClone.style.width = '150px';
+                element.appendChild(imgClone);
 
+                e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(180deg)';
+                e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
+
+                imgClone.animate([
+                    { transform: 'translate3D(0, 0, 0)' }, 
+                    { transform: 'translate3D(300px, -300px, 0)' }
+                  ], {
+                    duration: 2000,
+                }).onfinish = function(){
+                    imgClone.remove();
+                    e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(0deg)';
+                    fadeIn(e.target.parentNode.parentNode.querySelector('.product-name'));
+                    fadeIn(e.target.parentNode.parentNode.querySelector('.icon'));
+                    e.target.parentNode.querySelector('.buy-now').style.display = 'block';
+                    e.target.parentNode.querySelector('.product-detail').style.display = 'none';
+                    e.target.parentNode.style.top = '80%';
+                };
+            }
+        });
+    });
+    // ====================================================================
 })();

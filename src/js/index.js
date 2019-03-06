@@ -5,4 +5,4 @@ import '../sass/main.scss';
 // import './appjq';
 // import './app';
 // import './calc';
-import './vanilacarousel';
+// import './vanilacarousel';

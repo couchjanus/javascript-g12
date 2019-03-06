@@ -171,53 +171,205 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"sass/main.scss":[function(require,module,exports) {
+},{"./bundle-url":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/@fortawesome/fontawesome-free/css/all.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./images/cat1.jpg":[["cat1.a18b8267.jpg","sass/images/cat1.jpg"],"sass/images/cat1.jpg"],"./images/cat2.jpg":[["cat2.89a965ca.jpg","sass/images/cat2.jpg"],"sass/images/cat2.jpg"],"./images/cat3.jpg":[["cat3.6ff286f4.jpg","sass/images/cat3.jpg"],"sass/images/cat3.jpg"],"./images/cat4.jpg":[["cat4.ec2ac807.jpg","sass/images/cat4.jpg"],"sass/images/cat4.jpg"],"./images/cat5.jpg":[["cat5.77e2cbd7.jpg","sass/images/cat5.jpg"],"sass/images/cat5.jpg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/vanilacarousel.js":[function(require,module,exports) {
+},{"./../webfonts/fa-brands-400.eot":[["fa-brands-400.7b5acd02.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"./../webfonts/fa-brands-400.woff2":[["fa-brands-400.34cc846b.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"./../webfonts/fa-brands-400.woff":[["fa-brands-400.75159956.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"./../webfonts/fa-brands-400.ttf":[["fa-brands-400.f885063e.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"./../webfonts/fa-brands-400.svg":[["fa-brands-400.1f0eb095.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"./../webfonts/fa-regular-400.eot":[["fa-regular-400.d4b9b17f.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"./../webfonts/fa-regular-400.woff2":[["fa-regular-400.82c42f2f.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"./../webfonts/fa-regular-400.woff":[["fa-regular-400.adc5c7aa.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"./../webfonts/fa-regular-400.ttf":[["fa-regular-400.b073eab5.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"./../webfonts/fa-regular-400.svg":[["fa-regular-400.16d6ac71.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"./../webfonts/fa-solid-900.eot":[["fa-solid-900.0b60ff24.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"./../webfonts/fa-solid-900.woff2":[["fa-solid-900.55d5ef42.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"./../webfonts/fa-solid-900.woff":[["fa-solid-900.f824330b.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"./../webfonts/fa-solid-900.ttf":[["fa-solid-900.47a039f3.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"./../webfonts/fa-solid-900.svg":[["fa-solid-900.d08d5f59.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/normalize.css/normalize.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"sass/main.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"@fortawesome/fontawesome-free/css/all.css":"../node_modules/@fortawesome/fontawesome-free/css/all.css","normalize.css":"../node_modules/normalize.css/normalize.css","./images/overlay.png":[["overlay.b2a30f3f.png","sass/images/overlay.png"],"sass/images/overlay.png"],"./images/cat1.jpg":[["cat1.a18b8267.jpg","sass/images/cat1.jpg"],"sass/images/cat1.jpg"],"./images/cat2.jpg":[["cat2.89a965ca.jpg","sass/images/cat2.jpg"],"sass/images/cat2.jpg"],"./images/cat3.jpg":[["cat3.6ff286f4.jpg","sass/images/cat3.jpg"],"sass/images/cat3.jpg"],"./images/cat4.jpg":[["cat4.ec2ac807.jpg","sass/images/cat4.jpg"],"sass/images/cat4.jpg"],"./images/cat5.jpg":[["cat5.77e2cbd7.jpg","sass/images/cat5.jpg"],"sass/images/cat5.jpg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/app.js":[function(require,module,exports) {
 "use strict";
 
 (function () {
-  document.querySelector('.carousel-item').classList.add('active');
-  var total = document.querySelectorAll('.carousel-item').length;
-  var current = 0;
-  document.getElementById('moveRight').addEventListener('click', function () {
-    var next = current;
-    current = current + 1;
-    setSlide(next, current);
+  document.getElementById("cart-toggle").addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(".aside").classList.toggle("open");
+    document.querySelector(".backdrop").classList.toggle("backdrop--open");
   });
-  document.getElementById('moveLeft').addEventListener('click', function () {
-    var prev = current;
-    current = current - 1;
-    setSlide(prev, current);
+  document.querySelector(".toggle-sidebar").addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(".aside").classList.toggle("open");
+    document.querySelector(".backdrop").classList.toggle("backdrop--open");
   });
+  var plus = document.getElementsByClassName('plus');
 
-  function setSlide(prev, next) {
-    var slide = current;
-
-    if (next > total - 1) {
-      slide = 0;
-      current = 0;
-    }
-
-    if (next < 0) {
-      slide = total - 1;
-      current = total - 1;
-    }
-
-    document.querySelectorAll('.carousel-item')[prev].classList.remove('active');
-    document.querySelectorAll('.carousel-item')[slide].classList.add('active');
+  for (var i = 0; i < plus.length; i++) {
+    plus[i].addEventListener('click', function (e) {
+      var val = parseInt(e.target.previousElementSibling.getAttribute('value'));
+      e.target.previousElementSibling.setAttribute('value', val + 1);
+    });
   }
+
+  var minus = document.getElementsByClassName('minus');
+
+  for (var _i = 0; _i < minus.length; _i++) {
+    minus[_i].addEventListener('click', function (e) {
+      var val = parseInt(e.target.nextElementSibling.getAttribute('value'));
+      e.target.nextElementSibling.setAttribute('value', val - 1);
+    });
+  }
+
+  var buy = document.getElementsByClassName('buy-now');
+
+  function fade(item) {
+    item.classList.add('fade-active');
+    item.addEventListener('transitionend', function () {
+      item.style.display = 'none';
+      item.classList.remove('fade-active');
+    });
+  }
+
+  function fadeOut(item) {
+    var hendler = function hendler() {
+      item.style.display = 'none';
+      item.classList.remove('fade-active');
+      item.removeEventListener('transitionend', hendler);
+    };
+
+    item.classList.add('fade-active');
+    item.addEventListener('transitionend', hendler);
+  }
+
+  function fadeIn(item) {
+    var hendler = function hendler() {
+      item.classList.remove('fade-active');
+      item.removeEventListener('transitionend', hendler);
+    };
+
+    item.style.display = 'block';
+    item.classList.add('fade'); // item.classList.add('fade-passive');
+    // item.classList.remove('fade');
+
+    raf(function () {
+      item.classList.add('fade-passive');
+      item.classList.remove('fade');
+    });
+    item.addEventListener('transitionend', hendler);
+  }
+
+  function raf(fn) {
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        fn();
+      });
+    });
+  } // for (let i = 0; i < buy.length; i++) {
+  //     buy[i].addEventListener('click', function (e) {
+  //         fade(e.target.parentNode.parentNode.querySelector('.product-name'));
+  //         fade(e.target.parentNode.parentNode.querySelector('.icon'));
+  //         e.target.style.display = 'none';
+  //         e.target.parentNode.querySelector('.product-detail').style.display = 'block';
+  //         e.target.parentNode.style.top = '40%';
+  //     });
+  // }
+  // for (let i = 0; i < buy.length; i++) {
+  //     buy[i].addEventListener('click', function (e) {
+  //         fadeOut(e.target.parentNode.parentNode.querySelector('.product-name'));
+  //         fadeOut(e.target.parentNode.parentNode.querySelector('.icon'));
+  //         e.target.style.display = 'none';
+  //         e.target.parentNode.querySelector('.product-detail').style.display = 'block';
+  //         e.target.parentNode.style.top = '40%';
+  //     });
+  // }
+
+
+  var byes = Array.from(document.getElementsByClassName('buy-now'));
+  byes.forEach(function (buy) {
+    buy.addEventListener('click', function (e) {
+      fadeOut(e.target.parentNode.parentNode.querySelector('.product-name'));
+      fadeOut(e.target.parentNode.parentNode.querySelector('.icon'));
+      e.target.style.display = 'none';
+      e.target.parentNode.querySelector('.product-detail').style.display = 'block';
+      e.target.parentNode.style.top = '40%';
+    });
+  });
+  var cancel = document.getElementsByClassName('cancel'); // for (let i = 0; i < buy.length; i++) {
+  //     cancel[i].addEventListener('click', function (e) {
+  //         // e.target.parentNode.parentNode.querySelector('.product-name').style.display = 'block';
+  //         // e.target.parentNode.parentNode.querySelector('.icon').style.display = 'block';
+  //         fadeIn(e.target.parentNode.parentNode.querySelector('.product-name'));
+  //         fadeIn(e.target.parentNode.parentNode.querySelector('.icon'));
+  //         e.target.parentNode.querySelector('.buy-now').style.display = 'block';
+  //         e.target.parentNode.querySelector('.product-detail').style.display = 'none';
+  //         e.target.parentNode.style.top = '80%';
+  //     });
+  // }
+
+  var cancels = Array.from(document.getElementsByClassName('cancel'));
+  cancels.forEach(function (cancel) {
+    cancel.addEventListener('click', function (e) {
+      fadeIn(e.target.parentNode.parentNode.querySelector('.product-name'));
+      fadeIn(e.target.parentNode.parentNode.querySelector('.icon'));
+      e.target.parentNode.querySelector('.buy-now').style.display = 'block';
+      e.target.parentNode.querySelector('.product-detail').style.display = 'none';
+      e.target.parentNode.style.top = '80%';
+    });
+  });
+
+  function addProductToCart(content, item) {
+    content.querySelector('.item-name').textContent = item.querySelector(".product-name").textContent;
+    content.querySelector('.item-quantity').textContent = item.querySelector(".quantity").value;
+    content.querySelector('.item-price').textContent = item.querySelector(".product-price").textContent;
+    content.querySelector('.item-img img').setAttribute('src', item.querySelector(".product-picture img").getAttribute('src'));
+    return content;
+  }
+
+  var content = document.getElementById("cartItem").content;
+  var carts = Array.from(document.getElementsByClassName('add-to-cart'));
+  carts.forEach(function (cart) {
+    cart.addEventListener('click', function (e) {
+      var element = e.target.parentNode.parentNode;
+      document.querySelector('.cart-items').append(document.importNode(addProductToCart(content, element), true)); // Поиск элемента с заданным номером
+
+      var imgToDrag = element.querySelector("img");
+
+      if (imgToDrag) {
+        var imgClone = imgToDrag.cloneNode(true);
+        imgClone.style.left = 0;
+        imgClone.style.top = 0;
+        imgClone.classList.add('offset-img');
+        imgClone.style.height = '150px';
+        imgClone.style.width = '150px';
+        element.appendChild(imgClone);
+        e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(180deg)';
+        e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
+
+        imgClone.animate([{
+          transform: 'translate3D(0, 0, 0)'
+        }, {
+          transform: 'translate3D(300px, -300px, 0)'
+        }], {
+          duration: 2000
+        }).onfinish = function () {
+          imgClone.remove();
+          e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(0deg)';
+          fadeIn(e.target.parentNode.parentNode.querySelector('.product-name'));
+          fadeIn(e.target.parentNode.parentNode.querySelector('.icon'));
+          e.target.parentNode.querySelector('.buy-now').style.display = 'block';
+          e.target.parentNode.querySelector('.product-detail').style.display = 'none';
+          e.target.parentNode.style.top = '80%';
+        };
+      }
+    });
+  }); // ====================================================================
 })();
 },{}],"js/index.js":[function(require,module,exports) {
 'use strict';
 
 require("../sass/main.scss");
 
-require("./vanilacarousel");
-},{"../sass/main.scss":"sass/main.scss","./vanilacarousel":"js/vanilacarousel.js"}],"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("./app");
+},{"../sass/main.scss":"sass/main.scss","./app":"js/app.js"}],"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -244,7 +396,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35289" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44501" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
