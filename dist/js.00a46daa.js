@@ -187,8 +187,125 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"@fortawesome/fontawesome-free/css/all.css":"../node_modules/@fortawesome/fontawesome-free/css/all.css","normalize.css":"../node_modules/normalize.css/normalize.css","./images/overlay.png":[["overlay.b2a30f3f.png","sass/images/overlay.png"],"sass/images/overlay.png"],"./images/cat1.jpg":[["cat1.a18b8267.jpg","sass/images/cat1.jpg"],"sass/images/cat1.jpg"],"./images/cat2.jpg":[["cat2.89a965ca.jpg","sass/images/cat2.jpg"],"sass/images/cat2.jpg"],"./images/cat3.jpg":[["cat3.6ff286f4.jpg","sass/images/cat3.jpg"],"sass/images/cat3.jpg"],"./images/cat4.jpg":[["cat4.ec2ac807.jpg","sass/images/cat4.jpg"],"sass/images/cat4.jpg"],"./images/cat5.jpg":[["cat5.77e2cbd7.jpg","sass/images/cat5.jpg"],"sass/images/cat5.jpg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/app.js":[function(require,module,exports) {
+},{"@fortawesome/fontawesome-free/css/all.css":"../node_modules/@fortawesome/fontawesome-free/css/all.css","normalize.css":"../node_modules/normalize.css/normalize.css","./images/overlay.png":[["overlay.b2a30f3f.png","sass/images/overlay.png"],"sass/images/overlay.png"],"./images/cat1.jpg":[["cat1.a18b8267.jpg","sass/images/cat1.jpg"],"sass/images/cat1.jpg"],"./images/cat2.jpg":[["cat2.89a965ca.jpg","sass/images/cat2.jpg"],"sass/images/cat2.jpg"],"./images/cat3.jpg":[["cat3.6ff286f4.jpg","sass/images/cat3.jpg"],"sass/images/cat3.jpg"],"./images/cat4.jpg":[["cat4.ec2ac807.jpg","sass/images/cat4.jpg"],"sass/images/cat4.jpg"],"./images/cat5.jpg":[["cat5.77e2cbd7.jpg","sass/images/cat5.jpg"],"sass/images/cat5.jpg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/data.js":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.data = void 0;
+var data = [{
+  id: 0,
+  name: "Cool Cat",
+  price: 177,
+  picture: "cat1.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos, maxime ea excepturi veritatis itaque."
+}, {
+  id: 1,
+  name: "Black Cat",
+  price: 666,
+  picture: "cat2.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos, maxime ea excepturi veritatis itaque."
+}, {
+  id: 2,
+  name: "Red Cat",
+  price: 555,
+  picture: "cat3.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos, maxime ea excepturi veritatis itaque."
+}, {
+  id: 3,
+  name: "Blue Cat",
+  price: 444,
+  picture: "cat4.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos, maxime ea excepturi veritatis itaque."
+}, {
+  id: 4,
+  name: "Green Cat",
+  price: 333,
+  picture: "cat5.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos, maxime ea excepturi veritatis itaque."
+}, {
+  id: 5,
+  name: "Grey Cat",
+  price: 222,
+  picture: "cat6.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos, maxime ea excepturi veritatis itaque."
+}, {
+  id: 6,
+  name: "Orange Cat",
+  price: 777,
+  picture: "cat7.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos, maxime ea excepturi veritatis itaque."
+}, {
+  id: 7,
+  name: "Pretty Cat",
+  price: 888,
+  picture: "cat8.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos, maxime ea excepturi veritatis itaque."
+}];
+exports.data = data;
+},{}],"js/app.js":[function(require,module,exports) {
+"use strict"; // app.js
+
+var _data = require("./data.js");
+
+// import {
+//     fadeOut,
+//     fadeIn,
+//     makeProductItem,
+//     addProductToCart
+// } from './app.functions';
+function fadeOut(item) {
+  var hendler = function hendler() {
+    item.style.display = 'none';
+    item.classList.remove('fade-active');
+    item.removeEventListener('transitionend', hendler);
+  };
+
+  item.classList.add('fade-active');
+  item.addEventListener('transitionend', hendler);
+}
+
+function fadeIn(item) {
+  var hendler = function hendler() {
+    item.classList.remove('fade-active');
+    item.removeEventListener('transitionend', hendler);
+  };
+
+  item.style.display = 'block';
+  item.classList.add('fade');
+  raf(function () {
+    item.classList.add('fade-passive');
+    item.classList.remove('fade');
+  });
+  item.addEventListener('transitionend', hendler);
+}
+
+function raf(fn) {
+  window.requestAnimationFrame(function () {
+    window.requestAnimationFrame(function () {
+      fn();
+    });
+  });
+}
+
+function makeProductItem($template, product) {
+  $template.querySelector('.product-wrapper').setAttribute('productId', product.id);
+  $template.querySelector('.product-name').textContent = product.name;
+  $template.querySelector('img').setAttribute('src', "images/" + product.picture);
+  $template.querySelector('img').setAttribute('alt', product.name);
+  $template.querySelector('.product-price').textContent = '$' + product.price;
+  return $template;
+}
+
+function addProductToCart(content, item) {
+  content.querySelector('.item-name').textContent = item.querySelector(".product-name").textContent;
+  content.querySelector('.item-quantity').textContent = item.querySelector(".quantity").value;
+  content.querySelector('.item-price').textContent = item.querySelector(".product-price").textContent;
+  content.querySelector('.item-img img').setAttribute('src', item.querySelector(".product-picture img").getAttribute('src'));
+  return content;
+} // ---------------------------------------------------------------------------------
+
 
 (function () {
   document.getElementById("cart-toggle").addEventListener('click', function (e) {
@@ -200,89 +317,46 @@ module.hot.accept(reloadCSS);
     e.preventDefault();
     document.querySelector(".aside").classList.toggle("open");
     document.querySelector(".backdrop").classList.toggle("backdrop--open");
-  });
-  var plus = document.getElementsByClassName('plus');
+  }); // Контент шаблона
 
-  for (var i = 0; i < plus.length; i++) {
-    plus[i].addEventListener('click', function (e) {
-      var val = parseInt(e.target.previousElementSibling.getAttribute('value'));
-      e.target.previousElementSibling.setAttribute('value', val + 1);
+  var $template = document.getElementById("productItem").content;
+
+  for (var i = 0; i < Object.keys(_data.data).length; i++) {
+    document.querySelector('.main').append(makeProductItem($template, _data.data[i]).cloneNode(true));
+  } // let plus = document.getElementsByClassName('plus');
+  // for (let i = 0; i < plus.length; i++) {
+  //     plus[i].addEventListener('click', function (e) {
+  //         let val = parseInt(e.target.previousElementSibling.getAttribute('value'));
+  //         e.target.previousElementSibling.setAttribute('value', val + 1);
+  //     });
+  // }
+
+
+  var plus = document.getElementsByClassName('plus');
+  plus = Array.prototype.slice.call(plus); // теперь plus - массив
+
+  plus.forEach(function (elem) {
+    elem.addEventListener('click', function () {
+      var val = parseInt(this.previousElementSibling.getAttribute('value'));
+      this.previousElementSibling.setAttribute('value', val + 1);
     });
-  }
+  }); // let minus = document.getElementsByClassName('minus');
+  // for (let i = 0; i < minus.length; i++) {
+  //     minus[i].addEventListener('click', function (e) {
+  //         let val = parseInt(e.target.nextElementSibling.getAttribute('value'));
+  //         e.target.nextElementSibling.setAttribute('value', val - 1);
+  //     });
+  // }
 
   var minus = document.getElementsByClassName('minus');
+  minus = Array.prototype.slice.call(minus); // теперь minus - массив
 
-  for (var _i = 0; _i < minus.length; _i++) {
-    minus[_i].addEventListener('click', function (e) {
-      var val = parseInt(e.target.nextElementSibling.getAttribute('value'));
-      e.target.nextElementSibling.setAttribute('value', val - 1);
+  minus.forEach(function (elem) {
+    elem.addEventListener('click', function () {
+      var val = parseInt(this.nextElementSibling.getAttribute('value'));
+      this.nextElementSibling.setAttribute('value', val - 1);
     });
-  }
-
-  var buy = document.getElementsByClassName('buy-now');
-
-  function fade(item) {
-    item.classList.add('fade-active');
-    item.addEventListener('transitionend', function () {
-      item.style.display = 'none';
-      item.classList.remove('fade-active');
-    });
-  }
-
-  function fadeOut(item) {
-    var hendler = function hendler() {
-      item.style.display = 'none';
-      item.classList.remove('fade-active');
-      item.removeEventListener('transitionend', hendler);
-    };
-
-    item.classList.add('fade-active');
-    item.addEventListener('transitionend', hendler);
-  }
-
-  function fadeIn(item) {
-    var hendler = function hendler() {
-      item.classList.remove('fade-active');
-      item.removeEventListener('transitionend', hendler);
-    };
-
-    item.style.display = 'block';
-    item.classList.add('fade'); // item.classList.add('fade-passive');
-    // item.classList.remove('fade');
-
-    raf(function () {
-      item.classList.add('fade-passive');
-      item.classList.remove('fade');
-    });
-    item.addEventListener('transitionend', hendler);
-  }
-
-  function raf(fn) {
-    window.requestAnimationFrame(function () {
-      window.requestAnimationFrame(function () {
-        fn();
-      });
-    });
-  } // for (let i = 0; i < buy.length; i++) {
-  //     buy[i].addEventListener('click', function (e) {
-  //         fade(e.target.parentNode.parentNode.querySelector('.product-name'));
-  //         fade(e.target.parentNode.parentNode.querySelector('.icon'));
-  //         e.target.style.display = 'none';
-  //         e.target.parentNode.querySelector('.product-detail').style.display = 'block';
-  //         e.target.parentNode.style.top = '40%';
-  //     });
-  // }
-  // for (let i = 0; i < buy.length; i++) {
-  //     buy[i].addEventListener('click', function (e) {
-  //         fadeOut(e.target.parentNode.parentNode.querySelector('.product-name'));
-  //         fadeOut(e.target.parentNode.parentNode.querySelector('.icon'));
-  //         e.target.style.display = 'none';
-  //         e.target.parentNode.querySelector('.product-detail').style.display = 'block';
-  //         e.target.parentNode.style.top = '40%';
-  //     });
-  // }
-
-
+  });
   var byes = Array.from(document.getElementsByClassName('buy-now'));
   byes.forEach(function (buy) {
     buy.addEventListener('click', function (e) {
@@ -293,18 +367,6 @@ module.hot.accept(reloadCSS);
       e.target.parentNode.style.top = '40%';
     });
   });
-  var cancel = document.getElementsByClassName('cancel'); // for (let i = 0; i < buy.length; i++) {
-  //     cancel[i].addEventListener('click', function (e) {
-  //         // e.target.parentNode.parentNode.querySelector('.product-name').style.display = 'block';
-  //         // e.target.parentNode.parentNode.querySelector('.icon').style.display = 'block';
-  //         fadeIn(e.target.parentNode.parentNode.querySelector('.product-name'));
-  //         fadeIn(e.target.parentNode.parentNode.querySelector('.icon'));
-  //         e.target.parentNode.querySelector('.buy-now').style.display = 'block';
-  //         e.target.parentNode.querySelector('.product-detail').style.display = 'none';
-  //         e.target.parentNode.style.top = '80%';
-  //     });
-  // }
-
   var cancels = Array.from(document.getElementsByClassName('cancel'));
   cancels.forEach(function (cancel) {
     cancel.addEventListener('click', function (e) {
@@ -315,15 +377,6 @@ module.hot.accept(reloadCSS);
       e.target.parentNode.style.top = '80%';
     });
   });
-
-  function addProductToCart(content, item) {
-    content.querySelector('.item-name').textContent = item.querySelector(".product-name").textContent;
-    content.querySelector('.item-quantity').textContent = item.querySelector(".quantity").value;
-    content.querySelector('.item-price').textContent = item.querySelector(".product-price").textContent;
-    content.querySelector('.item-img img').setAttribute('src', item.querySelector(".product-picture img").getAttribute('src'));
-    return content;
-  }
-
   var content = document.getElementById("cartItem").content;
   var carts = Array.from(document.getElementsByClassName('add-to-cart'));
   carts.forEach(function (cart) {
@@ -340,14 +393,17 @@ module.hot.accept(reloadCSS);
         imgClone.classList.add('offset-img');
         imgClone.style.height = '150px';
         imgClone.style.width = '150px';
-        element.appendChild(imgClone);
+        document.body.appendChild(imgClone);
         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(180deg)';
         e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
+        var rect = document.querySelector('#cart-toggle').getBoundingClientRect();
+        var toLeft = rect.left - 50 + 'px';
+        var toTop = rect.top - 50 + 'px'; // console.log(toLeft, toTop);
 
         imgClone.animate([{
           transform: 'translate3D(0, 0, 0)'
         }, {
-          transform: 'translate3D(300px, -300px, 0)'
+          transform: 'translate3D(' + toLeft + ',' + toTop + ',0) perspective(500px) scale3d(0.1, 0.1, 0.2)'
         }], {
           duration: 2000
         }).onfinish = function () {
@@ -361,9 +417,15 @@ module.hot.accept(reloadCSS);
         };
       }
     });
-  }); // ====================================================================
+  });
+  document.querySelector('.cart-items').addEventListener('click', function (e) {
+    if (e.target && e.target.matches(".remove-item")) {
+      console.log(e.target.parentNode);
+      e.target.parentNode.remove();
+    }
+  }, false); // ====================================================================
 })();
-},{}],"js/index.js":[function(require,module,exports) {
+},{"./data.js":"js/data.js"}],"js/index.js":[function(require,module,exports) {
 'use strict';
 
 require("../sass/main.scss");
@@ -396,7 +458,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44501" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43961" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
