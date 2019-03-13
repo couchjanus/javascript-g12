@@ -5,65 +5,12 @@ import {
     data
 } from './data.js';
 
-// import {
-//     fadeOut,
-//     fadeIn,
-//     makeProductItem,
-//     addProductToCart
-// } from './app.functions';
-
-function fadeOut(item) {
-    let hendler = function () {
-        item.style.display = 'none';
-        item.classList.remove('fade-active');
-        item.removeEventListener('transitionend', hendler);
-    };
-    item.classList.add('fade-active');
-    item.addEventListener('transitionend', hendler);
-}
-
-function fadeIn(item) {
-    let hendler = function () {
-        item.classList.remove('fade-active');
-        item.removeEventListener('transitionend', hendler);
-    };
-    item.style.display = 'block';
-    item.classList.add('fade');
-
-    raf(function () {
-        item.classList.add('fade-passive');
-        item.classList.remove('fade');
-    });
-
-    item.addEventListener('transitionend', hendler);
-}
-
-function raf(fn) {
-    window.requestAnimationFrame(function () {
-        window.requestAnimationFrame(function () {
-            fn();
-        });
-    });
-}
-
-function makeProductItem($template, product) {
-    $template.querySelector('.product-wrapper').setAttribute('productId', product.id);
-    $template.querySelector('.product-name').textContent = product.name;
-    $template.querySelector('img').setAttribute('src', "images/"+ product.picture);
-    $template.querySelector('img').setAttribute('alt', product.name);
-    $template.querySelector('.product-price').textContent = '$'+product.price;
-    return $template;
-}
-
-function addProductToCart(content, item) {
-    content.querySelector('.item-name').textContent = item.querySelector(".product-name").textContent;
-    content.querySelector('.item-quantity').textContent = item.querySelector(".quantity").value;
-    content.querySelector('.item-price').textContent = item.querySelector(".product-price").textContent;
-    content.querySelector('.item-img img').setAttribute('src', item.querySelector(".product-picture img").getAttribute('src'));
-
-    
-    return content;
-}
+import {
+    fadeOut,
+    fadeIn,
+    makeProductItem,
+    addProductToCart
+} from './app.functions';
 
 // ---------------------------------------------------------------------------------
 (function () {
@@ -87,15 +34,6 @@ function addProductToCart(content, item) {
         document.querySelector('.main').append(makeProductItem($template, data[i]).cloneNode(true));
     }
 
-    // let plus = document.getElementsByClassName('plus');
-    // for (let i = 0; i < plus.length; i++) {
-    //     plus[i].addEventListener('click', function (e) {
-    //         let val = parseInt(e.target.previousElementSibling.getAttribute('value'));
-    //         e.target.previousElementSibling.setAttribute('value', val + 1);
-    //     });
-    // }
-
-
     let plus = document.getElementsByClassName('plus');
 
     plus = Array.prototype.slice.call(plus); // теперь plus - массив
@@ -106,15 +44,6 @@ function addProductToCart(content, item) {
             this.previousElementSibling.setAttribute('value', val + 1);
         });
     });
-
-
-    // let minus = document.getElementsByClassName('minus');
-    // for (let i = 0; i < minus.length; i++) {
-    //     minus[i].addEventListener('click', function (e) {
-    //         let val = parseInt(e.target.nextElementSibling.getAttribute('value'));
-    //         e.target.nextElementSibling.setAttribute('value', val - 1);
-    //     });
-    // }
 
     let minus = document.getElementsByClassName('minus');
 
@@ -160,6 +89,11 @@ function addProductToCart(content, item) {
             // Поиск элемента с заданным номером
             var imgToDrag = element.querySelector("img");
 
+            let rectOrigin = imgToDrag.getBoundingClientRect();
+            let toLeftStart = rectOrigin.left + 'px';
+            let toTopStart = rectOrigin.top + 'px';
+            console.log(toLeftStart, toTopStart);
+
             if (imgToDrag) {
                 var imgClone = imgToDrag.cloneNode(true);
                 imgClone.style.left = 0;
@@ -175,10 +109,9 @@ function addProductToCart(content, item) {
                 let rect = document.querySelector('#cart-toggle').getBoundingClientRect();
                 let toLeft = rect.left - 50 + 'px';
                 let toTop = rect.top - 50 + 'px';
-                // console.log(toLeft, toTop);
 
                 imgClone.animate([{
-                        transform: 'translate3D(0, 0, 0)'
+                        transform: 'translate3D('+toLeftStart+','+ toTopStart+', 0)'
                     },
                     {
                         transform: 'translate3D(' + toLeft + ',' + toTop + ',0) perspective(500px) scale3d(0.1, 0.1, 0.2)'

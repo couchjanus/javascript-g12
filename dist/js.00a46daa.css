@@ -5089,9 +5089,9 @@ html, body {
 }
 
 .cart-item {
-  padding: 11px 0 5px 90px;
-  height: 65px;
-  width: 210px;
+  padding: 0px 0 5px 90px;
+  height: 80px;
+  width: 250px;
   margin-left: -40px;
   position: relative;
   background: #fff;
@@ -5108,7 +5108,7 @@ html, body {
   left: 45px;
   background: #edeff0;
   height: 1px;
-  width: 230px;
+  width: 260px;
 }
 
 .cart-item .item-img {
@@ -5143,7 +5143,7 @@ html, body {
   width: 15px;
   height: 15px;
   float: right;
-  margin-right: 18px;
+  margin-right: 30px;
   display: none;
 }
 

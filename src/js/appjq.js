@@ -3,31 +3,29 @@ import $ from 'jquery';
 
 window.jQuery = window.$ = $;
 
-// appjq.js
-import {data} from './data.js'; // нужно точно указать имя сущности
+import {
+    data
+} from './data.js'; 
 
+import {
+    openCart,
+    closeCart,
+    makeProductItem,
+    saveCart
+} from './appjq.functions';
 
 $(function () {
-    $("#cart-toggle").on('click', function () {
-        $('.aside').toggleClass('open');
-        $(".backdrop").toggleClass("backdrop--open");
-    });
 
-    $(".toggle-sidebar").on('click', function (e) {
-        $(".aside").toggleClass("open");
-        $(".backdrop").toggleClass("backdrop--open");
-    });
+    var shoppingCart = [];
 
-    function makeProductItem($template, product){
-        $template.find('.product-wrapper').attr('productId', product.id);
-        $template.find('.product-name').text(product.name);
-        $template.find('img').attr('src', "images/"+ product.picture);
-        $template.find('img').attr('alt', product.name);
-        $template.find('.product-price').text('$'+product.price);
-        return $template;
+    if (localStorage.shoppingCart) {
+        shoppingCart = JSON.parse(localStorage.shoppingCart);
     }
 
-    for (var i=0; i<data.length; i++) {
+    $("#cart-toggle").on('click', () => openCart(shoppingCart));
+    $(".toggle-sidebar").on('click', () => closeCart());
+
+    for (var i = 0; i < data.length; i++) {
         let $template = $($('#productItem').html());
         $(".main").append(makeProductItem($template, data[i]));
     }
@@ -108,27 +106,38 @@ $(function () {
         });
     });
 
-    const $template = $($('#cartItem').html());
-
-    function addProductToCart(template, item) {
-        template.find(".item-quantity").text(item.find(".quantity").val());
-        template.find(".item-name").text(item.find(".product-name").text());
-        template.find('.item-price').text(item.find(".product-price").text());
-        template.find('.item-img img').attr('src', item.find(".product-picture img").attr('src'));
-        template.find(".remove-item").on('click', function() {
-            $(this).parent().remove();
-        });
-        return template;
-    }
     // ===========================Поиск элемента========================================
     $(".add-to-cart").each(function (index, element) {
         $(element).on('click', function () {
-            
-            let template = $template.clone();
-            
-            $(".cart-items").append(addProductToCart(template, $(this).parents(".product")));
 
-            // Поиск элемента с заданным номером
+            let id = $(this).parents('.product-wrapper').attr("productId");
+            let price = $(this).parents(".product-menu").find(".product-price").text();
+            let name = $(this).parents(".product").children(".product-name").text();
+            let quantity = $(this).parents(".product").find(".quantity").val();
+            let picture = $(this).parents(".product").find("img").attr('src');
+
+            for (let i in shoppingCart) {
+                if (shoppingCart[i].Id == id) {
+                    shoppingCart[i].Quantity = parseInt(shoppingCart[i].Quantity) + parseInt(quantity);
+                    saveCart(shoppingCart);
+                    return;
+                }
+            }
+
+            let item = {
+                Id: id,
+                Product: name,
+                Price: price,
+                Quantity: quantity,
+                Picture: picture
+            };
+
+            shoppingCart.push(item);
+
+            // console.log(shoppingCart);
+
+            saveCart(shoppingCart);
+            // ====================================================================
 
             var imgToDrag = $(this).parents('.product').find("img").eq(0);
 
@@ -178,6 +187,20 @@ $(function () {
             });
         });
     });
-    // ====================================================================
+    // ========================Очистка всего хранилища======================
+    $('body').on('click', '#cart-sidebar .clear-cart', function () {
+        localStorage.removeItem('shoppingCart');
+        $('.cart-items').empty();
+        shoppingCart = [];
+    });
+
+    $('body').on('click', '.cart-items .remove-item', function () {
+        var index = $(this).parent().attr("id");
+        shoppingCart.splice(shoppingCart.indexOf(shoppingCart.find(x => x.Id === index)), 1);
+
+        $(this).parents('li').remove();
+
+        saveCart(shoppingCart);
+    });
 
 });

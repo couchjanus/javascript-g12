@@ -45,10 +45,11 @@
             <!-- cart-items end -->
 
             <div class="cart-total">
-                <p>Total <span>$39.96</span></p>
+                <p>Total <span>$00.00</span></p>
             </div> <!-- cart-total -->
 
             <a href="#" class="checkout-button">Checkout</a>
+            <a href="#" class="clear-cart">Clear Cart</a>
         </div> <!-- cart end -->
         <!-- Aside Area end -->
     </aside>
@@ -57,7 +58,7 @@
         <main class="main" id="main">
             <!-- Main -->
             <article class="grid-item">
-                <div class="product-wrapper">
+                <div class="product-wrapper" productId="a1">
                     <div class="product">
                         <p class="product-name">Very&nbsp;Nice&nbsp;Cat</p>
                         <div class="icon">
@@ -178,14 +179,17 @@
    
     <template id="cartItem">
         <li class='cart-item'>
+            <span class="productInCart" id=""></span>
             <div class='item-img'>
                 <img src="images/cat3.jpg" alt='' />
             </div>
             <span class="item-name"></span>
             <span class="item-quantity"></span>
             <strong class="item-price"></strong>
-            <div class='cart-item-border'></div>
+            <strong class="item-prices"></strong>
             <div class='remove-item'></div>
+            <div class='cart-item-border'></div>
+            
         </li>
     </template>
 
