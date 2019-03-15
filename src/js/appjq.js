@@ -3,9 +3,9 @@ import $ from 'jquery';
 
 window.jQuery = window.$ = $;
 
-import {
-    data
-} from './data.js'; 
+// import {
+//     data
+// } from './data.js'; 
 
 import {
     openCart,
@@ -14,7 +14,20 @@ import {
     saveCart
 } from './appjq.functions';
 
+
 $(function () {
+    var url = 'https://api.myjson.com/bins/wzxxy';
+    var data = [];
+
+    $.ajax({
+        url: url,
+        method: 'GET'
+    }).then(
+        function(jsonData) {
+        
+        for(var i in jsonData) {
+            data.push(jsonData[i]);
+        }
 
     var shoppingCart = [];
 
@@ -133,12 +146,7 @@ $(function () {
             };
 
             shoppingCart.push(item);
-
-            // console.log(shoppingCart);
-
             saveCart(shoppingCart);
-            // ====================================================================
-
             var imgToDrag = $(this).parents('.product').find("img").eq(0);
 
             if (imgToDrag) {
@@ -202,5 +210,7 @@ $(function () {
 
         saveCart(shoppingCart);
     });
+
+});
 
 });
