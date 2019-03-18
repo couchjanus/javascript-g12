@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel ./src/index.html"
+    "start": "parcel src/index.html",
+    "mock:server": "json-server --watch db.json",
+    "dev": "concurrently -k \"npm run mock:server\" \"parcel src/index.html\""
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   "homepage": "https://github.com/couchjanus/javascript-g12#readme",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.7.2",
+    "concurrently": "^4.1.0",
     "jshint": "^2.10.1",
     "jslint": "^0.12.1",
     "prettier": "1.16.4",

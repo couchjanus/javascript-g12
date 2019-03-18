@@ -3,10 +3,6 @@ import $ from 'jquery';
 
 window.jQuery = window.$ = $;
 
-// import {
-//     data
-// } from './data.js'; 
-
 import {
     openCart,
     closeCart,
@@ -16,7 +12,7 @@ import {
 
 
 $(function () {
-    var url = 'https://api.myjson.com/bins/wzxxy';
+    const url = 'https://my-json-server.typicode.com/couchjanus/db/products';
     var data = [];
 
     $.ajax({
@@ -123,7 +119,7 @@ $(function () {
     $(".add-to-cart").each(function (index, element) {
         $(element).on('click', function () {
 
-            let id = $(this).parents('.product-wrapper').attr("productId");
+            let id = $(this).parents('.product').attr("productId");
             let price = $(this).parents(".product-menu").find(".product-price").text();
             let name = $(this).parents(".product").children(".product-name").text();
             let quantity = $(this).parents(".product").find(".quantity").val();

@@ -1,7 +1,7 @@
 "use strict";
 
 function makeProductItem($template, product) {
-    $template.find('.product-wrapper').attr('productId', product.id);
+    $template.find('.product').attr('productId', product.id);
     $template.find('.product-name').text(product.name);
     $template.find('img').attr('src', "images/" + product.picture);
     $template.find('img').attr('alt', product.name);

@@ -5,8 +5,6 @@
 //
 // anything defined in a previous bundle is accessed via the
 // orig method which is the require for previous bundles
-
-// eslint-disable-next-line no-global-assign
 parcelRequire = (function (modules, cache, entry, globalName) {
   // Save the require from previous bundle to this closure if any
   var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
@@ -77,8 +75,16 @@ parcelRequire = (function (modules, cache, entry, globalName) {
     }, {}];
   };
 
+  var error;
   for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
+    try {
+      newRequire(entry[i]);
+    } catch (e) {
+      // Save first error but execute all entries
+      if (!error) {
+        error = e;
+      }
+    }
   }
 
   if (entry.length) {
@@ -103,8 +109,15 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   // Override the current require with this new one
+  parcelRequire = newRequire;
+
+  if (error) {
+    // throw error from earlier, _after updating parcelRequire_
+    throw error;
+  }
+
   return newRequire;
-})({"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"../../../.nvm/versions/node/v11.12.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -120,7 +133,7 @@ function getBundleURL() {
   try {
     throw new Error();
   } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
     if (matches) {
       return getBaseURL(matches[0]);
@@ -131,12 +144,12 @@ function getBundleURL() {
 }
 
 function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
 }
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../.nvm/versions/node/v11.12.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -171,23 +184,23 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/@fortawesome/fontawesome-free/css/all.css":[function(require,module,exports) {
+},{"./bundle-url":"../../../.nvm/versions/node/v11.12.0/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/@fortawesome/fontawesome-free/css/all.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../webfonts/fa-brands-400.eot":[["fa-brands-400.7b5acd02.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"./../webfonts/fa-brands-400.woff2":[["fa-brands-400.34cc846b.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"./../webfonts/fa-brands-400.woff":[["fa-brands-400.75159956.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"./../webfonts/fa-brands-400.ttf":[["fa-brands-400.f885063e.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"./../webfonts/fa-brands-400.svg":[["fa-brands-400.1f0eb095.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"./../webfonts/fa-regular-400.eot":[["fa-regular-400.d4b9b17f.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"./../webfonts/fa-regular-400.woff2":[["fa-regular-400.82c42f2f.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"./../webfonts/fa-regular-400.woff":[["fa-regular-400.adc5c7aa.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"./../webfonts/fa-regular-400.ttf":[["fa-regular-400.b073eab5.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"./../webfonts/fa-regular-400.svg":[["fa-regular-400.16d6ac71.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"./../webfonts/fa-solid-900.eot":[["fa-solid-900.0b60ff24.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"./../webfonts/fa-solid-900.woff2":[["fa-solid-900.55d5ef42.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"./../webfonts/fa-solid-900.woff":[["fa-solid-900.f824330b.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"./../webfonts/fa-solid-900.ttf":[["fa-solid-900.47a039f3.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"./../webfonts/fa-solid-900.svg":[["fa-solid-900.d08d5f59.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/normalize.css/normalize.css":[function(require,module,exports) {
+},{"./../webfonts/fa-brands-400.eot":[["fa-brands-400.7b5acd02.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot"],"./../webfonts/fa-brands-400.woff2":[["fa-brands-400.34cc846b.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"],"./../webfonts/fa-brands-400.woff":[["fa-brands-400.75159956.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff"],"./../webfonts/fa-brands-400.ttf":[["fa-brands-400.f885063e.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"],"./../webfonts/fa-brands-400.svg":[["fa-brands-400.1f0eb095.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg"],"./../webfonts/fa-regular-400.eot":[["fa-regular-400.d4b9b17f.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot"],"./../webfonts/fa-regular-400.woff2":[["fa-regular-400.82c42f2f.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"],"./../webfonts/fa-regular-400.woff":[["fa-regular-400.adc5c7aa.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff"],"./../webfonts/fa-regular-400.ttf":[["fa-regular-400.b073eab5.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"],"./../webfonts/fa-regular-400.svg":[["fa-regular-400.16d6ac71.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg"],"./../webfonts/fa-solid-900.eot":[["fa-solid-900.0b60ff24.eot","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot"],"./../webfonts/fa-solid-900.woff2":[["fa-solid-900.55d5ef42.woff2","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"],"./../webfonts/fa-solid-900.woff":[["fa-solid-900.f824330b.woff","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff"],"./../webfonts/fa-solid-900.ttf":[["fa-solid-900.47a039f3.ttf","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"],"./../webfonts/fa-solid-900.svg":[["fa-solid-900.d08d5f59.svg","../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg"],"_css_loader":"../../../.nvm/versions/node/v11.12.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/normalize.css/normalize.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"sass/main.scss":[function(require,module,exports) {
+},{"_css_loader":"../../../.nvm/versions/node/v11.12.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"sass/main.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"@fortawesome/fontawesome-free/css/all.css":"../node_modules/@fortawesome/fontawesome-free/css/all.css","normalize.css":"../node_modules/normalize.css/normalize.css","./images/overlay.png":[["overlay.b2a30f3f.png","sass/images/overlay.png"],"sass/images/overlay.png"],"./images/cat1.jpg":[["cat1.a18b8267.jpg","sass/images/cat1.jpg"],"sass/images/cat1.jpg"],"./images/cat2.jpg":[["cat2.89a965ca.jpg","sass/images/cat2.jpg"],"sass/images/cat2.jpg"],"./images/cat3.jpg":[["cat3.6ff286f4.jpg","sass/images/cat3.jpg"],"sass/images/cat3.jpg"],"./images/cat4.jpg":[["cat4.ec2ac807.jpg","sass/images/cat4.jpg"],"sass/images/cat4.jpg"],"./images/cat5.jpg":[["cat5.77e2cbd7.jpg","sass/images/cat5.jpg"],"sass/images/cat5.jpg"],"_css_loader":"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/app.functions.js":[function(require,module,exports) {
+},{"@fortawesome/fontawesome-free/css/all.css":"../node_modules/@fortawesome/fontawesome-free/css/all.css","normalize.css":"../node_modules/normalize.css/normalize.css","./images/overlay.png":[["overlay.b2a30f3f.png","sass/images/overlay.png"],"sass/images/overlay.png"],"./images/cat1.jpg":[["cat1.a18b8267.jpg","sass/images/cat1.jpg"],"sass/images/cat1.jpg"],"./images/cat2.jpg":[["cat2.89a965ca.jpg","sass/images/cat2.jpg"],"sass/images/cat2.jpg"],"./images/cat3.jpg":[["cat3.6ff286f4.jpg","sass/images/cat3.jpg"],"sass/images/cat3.jpg"],"./images/cat4.jpg":[["cat4.ec2ac807.jpg","sass/images/cat4.jpg"],"sass/images/cat4.jpg"],"./images/cat5.jpg":[["cat5.77e2cbd7.jpg","sass/images/cat5.jpg"],"sass/images/cat5.jpg"],"_css_loader":"../../../.nvm/versions/node/v11.12.0/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/app.functions.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -196,7 +209,12 @@ Object.defineProperty(exports, "__esModule", {
 exports.fadeOut = fadeOut;
 exports.fadeIn = fadeIn;
 exports.makeProductItem = makeProductItem;
-exports.addProductToCart = addProductToCart;
+exports.openCart = openCart;
+exports.closeCart = closeCart;
+exports.saveCart = saveCart;
+exports.getElement = getElement;
+exports._translate = _translate;
+exports.updateTotal = updateTotal;
 
 function raf(fn) {
   window.requestAnimationFrame(function () {
@@ -233,45 +251,191 @@ function fadeIn(item) {
 }
 
 function makeProductItem($template, product) {
-  $template.querySelector('.product-wrapper').setAttribute('productId', product.id);
+  $template.querySelector('.product').setAttribute('productId', product.id);
   $template.querySelector('.product-name').textContent = product.name;
   $template.querySelector('img').setAttribute('src', "images/" + product.picture);
   $template.querySelector('img').setAttribute('alt', product.name);
+  $template.querySelector('.product-detail').setAttribute('alt', product.name);
   $template.querySelector('.product-price').textContent = '$' + product.price;
   return $template;
 }
 
-function addProductToCart(content, item) {
-  content.querySelector('.item-name').textContent = item.querySelector(".product-name").textContent;
-  content.querySelector('.item-quantity').textContent = item.querySelector(".quantity").value;
-  content.querySelector('.item-price').textContent = item.querySelector(".product-price").textContent;
-  content.querySelector('.item-img img').setAttribute('src', item.querySelector(".product-picture img").getAttribute('src'));
-  return content;
+function updateTotal() {
+  var quantities = 0,
+      total = 0,
+      $cartTotal = document.querySelector('.cart-total span'),
+      items = document.querySelector('.cart-items').children;
+  Array.from(items).forEach(function (item) {
+    total += parseFloat(item.querySelector('.item-prices').textContent);
+  });
+  $cartTotal.textContent = parseFloat(Math.round(total * 100) / 100).toFixed(2);
 }
+
+function saveCart(shoppingCart) {
+  // Store data
+  localStorage.shoppingCart = JSON.stringify(shoppingCart);
+  console.log(JSON.stringify(shoppingCart));
+}
+
+function productInCart(template, item) {
+  template.querySelector('.productInCart').setAttribute('id', item.Id);
+  template.querySelector('.item-quantity').textContent = item.Quantity;
+  template.querySelector('.item-name').textContent = item.Product;
+  template.querySelector('.item-price').textContent = item.Price;
+  template.querySelector('.item-prices').textContent = parseFloat(item.Quantity) * parseFloat(item.Price.trim().substring(1));
+  template.querySelector('.item-img img').setAttribute('src', item.Picture);
+  return template;
+}
+
+function showCart(shoppingCart) {
+  if (shoppingCart.length == 0) {
+    console.log("Your Shopping Cart is Empty!");
+    return;
+  }
+
+  document.querySelector(".cart-items").innerHTML = '';
+  shoppingCart.forEach(function (item) {
+    var template = document.getElementById("cartItem").content;
+    productInCart(template, item);
+    document.querySelector(".cart-items").append(document.importNode(productInCart(template, item), true));
+  });
+  updateTotal();
+}
+
+function openCart(shoppingCart) {
+  showCart(shoppingCart);
+  document.querySelector(".aside").classList.add("open");
+  document.querySelector(".backdrop").classList.add("backdrop--open");
+}
+
+function closeCart() {
+  document.querySelector(".aside").classList.remove("open");
+  document.querySelector(".backdrop").classList.remove("backdrop--open");
+}
+
+function getElement(e) {
+  var element = e.parentNode.parentNode;
+  return {
+    id: element.getAttribute("productId"),
+    price: e.parentNode.querySelector(".product-price").textContent,
+    name: element.querySelector(".product-name").textContent,
+    quantity: element.querySelector(".quantity").value,
+    picture: element.querySelector("img").getAttribute('src')
+  };
+}
+
+function _translate(img) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var rect = img.getBoundingClientRect();
+  var elements = ['translate3D('];
+  elements.push(rect.left - offset + 'px,');
+  elements.push(rect.top - offset + 'px,0)');
+  return elements.join('');
+}
+},{}],"js/Product.js":[function(require,module,exports) {
+"use strict"; // export function  Product (id, name, price, quantity, picture) {
+//     this.Id = id;
+//     this.Product = name;
+//     this.Price = price;
+//     this.Quantity = quantity;
+//     this.Picture = picture;
+// }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Product = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Product = function Product(id, name, price, quantity, picture) {
+  _classCallCheck(this, Product);
+
+  this.Id = id;
+  this.Product = name;
+  this.Price = price;
+  this.Quantity = quantity;
+  this.Picture = picture;
+};
+
+exports.Product = Product;
 },{}],"js/app.js":[function(require,module,exports) {
-"use strict"; // app.js
-// import {
-//     data
-// } from './data.js';
+"use strict";
 
 var _app = require("./app.functions");
 
+var _Product = require("./Product");
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 // ---------------------------------------------------------------------------------
 (function () {
-  document.getElementById("cart-toggle").addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(".aside").classList.toggle("open");
-    document.querySelector(".backdrop").classList.toggle("backdrop--open");
+  // Контент шаблона
+  var $template = document.getElementById("productItem").content;
+  var url = 'http://localhost:3000/products'; // Get the modal
+
+  var modal = document.getElementById('myModal'); // Get the button that opens the modal
+
+  var openModal = document.getElementById("openModal"); // Get the <span> element that closes the modal
+
+  var closeModal = document.querySelector(".close-modal"); // When the user clicks the button, open the modal 
+
+  openModal.onclick = function () {
+    modal.style.display = "block";
+  }; // When the user clicks on <span> (x), close the modal
+
+
+  closeModal.onclick = function () {
+    modal.style.display = "none";
+  }; // When the user clicks anywhere outside of the modal, close it
+
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  document.getElementById('product--picture').addEventListener('change', function () {
+    this.value = this.options[this.selectedIndex].value;
   });
-  document.querySelector(".toggle-sidebar").addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(".aside").classList.toggle("open");
-    document.querySelector(".backdrop").classList.toggle("backdrop--open");
-  }); // Контент шаблона
+  document.getElementById("save-product").addEventListener('click', function () {
+    fetch(url, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        name: document.getElementById('product--name').value,
+        price: document.getElementById('product--price').value,
+        picture: document.getElementById('product--picture').value,
+        description: document.getElementById('product--description').value
+      })
+    }).then(function (res) {
+      return res.json();
+    }).then(function () {
+      return modal.style.display = "none";
+    });
+  });
+  var shoppingCart = [];
 
-  var $template = document.getElementById("productItem").content; // const url = 'https://api.myjson.com/bins/wzxxy';
+  if (localStorage.shoppingCart) {
+    shoppingCart = JSON.parse(localStorage.shoppingCart);
+  }
 
-  var url = 'https://my-json-server.typicode.com/couchjanus/db/products';
+  document.getElementById("cart-toggle").addEventListener('click', function () {
+    return (0, _app.openCart)(shoppingCart);
+  });
+  document.querySelector(".toggle-sidebar").addEventListener('click', function () {
+    return (0, _app.closeCart)();
+  });
   fetch(url).then(function (response) {
     if (response.status !== 200) {
       console.log('Looks like there was a problem. Status Code: ' + response.status);
@@ -280,19 +444,22 @@ var _app = require("./app.functions");
 
     response.json().then(function (data) {
       data.forEach(function (index) {
-        document.querySelector('.main').append((0, _app.makeProductItem)($template, index).cloneNode(true));
-      });
-      var plus = document.getElementsByClassName('plus');
-      plus = Array.prototype.slice.call(plus); // теперь plus - массив
+        document.querySelector('.main').append(document.importNode((0, _app.makeProductItem)($template, index), true));
+      }); // let plus = document.getElementsByClassName('plus');
+      // plus = Array.prototype.slice.call(plus); // теперь plus - массив
+
+      var plus = _toConsumableArray(document.querySelectorAll('.plus')); // Array.isArray(plus); // true
+
 
       plus.forEach(function (elem) {
         elem.addEventListener('click', function () {
           var val = parseInt(this.previousElementSibling.getAttribute('value'));
           this.previousElementSibling.setAttribute('value', val + 1);
         });
-      });
-      var minus = document.getElementsByClassName('minus');
-      minus = Array.prototype.slice.call(minus); // теперь minus - массив
+      }); // let minus = document.getElementsByClassName('minus');
+      // minus = Array.prototype.slice.call(minus); // теперь minus - массив
+
+      var minus = _toConsumableArray(document.querySelectorAll('.minus'));
 
       minus.forEach(function (elem) {
         elem.addEventListener('click', function () {
@@ -319,56 +486,141 @@ var _app = require("./app.functions");
           e.target.parentNode.querySelector('.product-detail').style.display = 'none';
           e.target.parentNode.style.top = '80%';
         });
-      });
-      var content = document.getElementById("cartItem").content;
-      var carts = Array.from(document.getElementsByClassName('add-to-cart'));
+      }); // ==================================================================
+
+      var carts = Array.from(document.getElementsByClassName('add-to-cart')); // carts.forEach(function (cart) {
+      //     cart.addEventListener('click', function (e) {
+      //         let element = e.target.parentNode.parentNode;
+      //         let id = element.getAttribute("productId");
+      //         let price = e.target.parentNode.querySelector(".product-price").textContent;
+      //         let name = element.querySelector(".product-name").textContent;
+      //         let quantity = element.querySelector(".quantity").value;
+      //         let picture = element.querySelector("img").getAttribute('src');
+      //         for (let i in shoppingCart) {
+      //             if (shoppingCart[i].Id == id) {
+      //                 shoppingCart[i].Quantity = parseInt(shoppingCart[i].Quantity) + parseInt(quantity);
+      //                 saveCart(shoppingCart);
+      //                 return;
+      //             }
+      //         }
+      //         let item = {
+      //             Id: id,
+      //             Product: name,
+      //             Price: price,
+      //             Quantity: quantity,
+      //             Picture: picture
+      //         };
+      //         shoppingCart.push(item);
+      //         saveCart(shoppingCart);
+      //         // Поиск элемента с заданным номером
+      //         var imgToDrag = e.target.parentNode.parentNode.querySelector("img");
+      //         let rectOrigin = imgToDrag.getBoundingClientRect();
+      //         let toLeftStart = rectOrigin.left + 'px';
+      //         let toTopStart = rectOrigin.top + 'px';
+      //         console.log(toLeftStart, toTopStart);
+      //         if (imgToDrag) {
+      //             var imgClone = imgToDrag.cloneNode(true);
+      //             imgClone.style.left = 0;
+      //             imgClone.style.top = 0;
+      //             imgClone.classList.add('offset-img');
+      //             imgClone.style.height = '150px';
+      //             imgClone.style.width = '150px';
+      //             document.body.appendChild(imgClone);
+      //             e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(180deg)';
+      //             e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
+      //             let rect = document.querySelector('#cart-toggle').getBoundingClientRect();
+      //             let toLeft = rect.left - 50 + 'px';
+      //             let toTop = rect.top - 50 + 'px';
+      //             imgClone.animate([{
+      //                     transform: 'translate3D(' + toLeftStart + ',' + toTopStart + ', 0)'
+      //                 },
+      //                 {
+      //                     transform: 'translate3D(' + toLeft + ',' + toTop + ',0) perspective(500px) scale3d(0.1, 0.1, 0.2)'
+      //                 },
+      //             ], {
+      //                 duration: 2000,
+      //             }).onfinish = function () {
+      //                 imgClone.remove();
+      //                 e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(0deg)';
+      //                 fadeIn(e.target.parentNode.parentNode.querySelector('.product-name'));
+      //                 fadeIn(e.target.parentNode.parentNode.querySelector('.icon'));
+      //                 e.target.parentNode.querySelector('.buy-now').style.display = 'block';
+      //                 e.target.parentNode.querySelector('.product-detail').style.display = 'none';
+      //                 e.target.parentNode.style.top = '80%';
+      //             };
+      //         }
+      //     });
+      // });
+      //===================================================================
+
       carts.forEach(function (cart) {
         cart.addEventListener('click', function (e) {
           var element = e.target.parentNode.parentNode;
-          document.querySelector('.cart-items').append(document.importNode((0, _app.addProductToCart)(content, element), true)); // Поиск элемента с заданным номером
+          var o = (0, _app.getElement)(e.target);
+          console.log(shoppingCart);
+
+          for (var i in shoppingCart) {
+            if (shoppingCart[i].Id == o.id) {
+              shoppingCart[i].Quantity = parseInt(shoppingCart[i].Quantity) + parseInt(o.quantity);
+              (0, _app.saveCart)(shoppingCart);
+              return;
+            }
+          } // let item = {
+          //     Id: o.id,
+          //     Product: o.name,
+          //     Price: o.price,
+          //     Quantity: o.quantity,
+          //     Picture: o.picture
+          // };
+
+
+          var item = new _Product.Product(o.id, o.name, o.price, o.quantity, o.picture);
+          shoppingCart.push(item);
+          (0, _app.saveCart)(shoppingCart); // Поиск элемента с заданным номером
 
           var imgToDrag = element.querySelector("img");
-          var rectOrigin = imgToDrag.getBoundingClientRect();
-          var toLeftStart = rectOrigin.left + 'px';
-          var toTopStart = rectOrigin.top + 'px';
-          console.log(toLeftStart, toTopStart);
 
           if (imgToDrag) {
             var imgClone = imgToDrag.cloneNode(true);
-            imgClone.style.left = 0;
-            imgClone.style.top = 0;
             imgClone.classList.add('offset-img');
-            imgClone.style.height = '150px';
-            imgClone.style.width = '150px';
             document.body.appendChild(imgClone);
-            e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(180deg)';
-            e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
-            var rect = document.querySelector('#cart-toggle').getBoundingClientRect();
-            var toLeft = rect.left - 50 + 'px';
-            var toTop = rect.top - 50 + 'px';
+            element.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(180deg)';
+            element.parentNode.parentNode.querySelector('.product-back').classList.add('back-is-visible');
 
             imgClone.animate([{
-              transform: 'translate3D(' + toLeftStart + ',' + toTopStart + ', 0)'
+              transform: (0, _app._translate)(imgToDrag)
             }, {
-              transform: 'translate3D(' + toLeft + ',' + toTop + ',0) perspective(500px) scale3d(0.1, 0.1, 0.2)'
+              transform: (0, _app._translate)(document.querySelector('#cart-toggle'), 50) + 'perspective(500px) scale3d(0.1, 0.1, 0.2)'
             }], {
               duration: 2000
             }).onfinish = function () {
               imgClone.remove();
-              e.target.parentNode.parentNode.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(0deg)';
-              (0, _app.fadeIn)(e.target.parentNode.parentNode.querySelector('.product-name'));
-              (0, _app.fadeIn)(e.target.parentNode.parentNode.querySelector('.icon'));
+              element.parentNode.parentNode.querySelector('.product-wrapper').style.transform = 'rotateY(0deg)';
+              (0, _app.fadeIn)(element.querySelector('.product-name'));
+              (0, _app.fadeIn)(element.querySelector('.icon'));
               e.target.parentNode.querySelector('.buy-now').style.display = 'block';
               e.target.parentNode.querySelector('.product-detail').style.display = 'none';
               e.target.parentNode.style.top = '80%';
             };
           }
         });
+      }); // =================Очистка всего хранилища================
+
+      document.querySelector('.clear-cart').addEventListener('click', function () {
+        localStorage.removeItem('shoppingCart');
+        document.querySelector('.cart-items').innerHTML = '';
+        shoppingCart = [];
+        (0, _app.updateTotal)();
       });
       document.querySelector('.cart-items').addEventListener('click', function (e) {
         if (e.target && e.target.matches(".remove-item")) {
-          // console.log(e.target.parentNode);
+          var index = e.target.parentNode.querySelector('.productInCart').getAttribute("id");
+          shoppingCart.splice(shoppingCart.indexOf(shoppingCart.find(function (x) {
+            return x.Id === index;
+          })), 1);
           e.target.parentNode.remove();
+          (0, _app.saveCart)(shoppingCart);
+          (0, _app.updateTotal)();
         }
       }, false);
     });
@@ -376,13 +628,13 @@ var _app = require("./app.functions");
     console.log('Fetch Error :-S', err);
   }); // ====================================================================
 })();
-},{"./app.functions":"js/app.functions.js"}],"js/index.js":[function(require,module,exports) {
+},{"./app.functions":"js/app.functions.js","./Product":"js/Product.js"}],"js/index.js":[function(require,module,exports) {
 'use strict';
 
 require("../sass/main.scss");
 
 require("./app");
-},{"../sass/main.scss":"sass/main.scss","./app":"js/app.js"}],"../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../sass/main.scss":"sass/main.scss","./app":"js/app.js"}],"../../../.nvm/versions/node/v11.12.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -404,26 +656,46 @@ function Module(moduleName) {
 }
 
 module.bundle.Module = Module;
+var checkedAssets, assetsToAccept;
 var parent = module.bundle.parent;
 
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40945" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39781" + '/');
 
   ws.onmessage = function (event) {
+    checkedAssets = {};
+    assetsToAccept = [];
     var data = JSON.parse(event.data);
 
     if (data.type === 'update') {
-      console.clear();
-      data.assets.forEach(function (asset) {
-        hmrApply(global.parcelRequire, asset);
-      });
+      var handled = false;
       data.assets.forEach(function (asset) {
         if (!asset.isNew) {
-          hmrAccept(global.parcelRequire, asset.id);
+          var didAccept = hmrAcceptCheck(global.parcelRequire, asset.id);
+
+          if (didAccept) {
+            handled = true;
+          }
         }
+      }); // Enable HMR for CSS by default.
+
+      handled = handled || data.assets.every(function (asset) {
+        return asset.type === 'css' && asset.generated.js;
       });
+
+      if (handled) {
+        console.clear();
+        data.assets.forEach(function (asset) {
+          hmrApply(global.parcelRequire, asset);
+        });
+        assetsToAccept.forEach(function (v) {
+          hmrAcceptRun(v[0], v[1]);
+        });
+      } else {
+        window.location.reload();
+      }
     }
 
     if (data.type === 'reload') {
@@ -511,7 +783,7 @@ function hmrApply(bundle, asset) {
   }
 }
 
-function hmrAccept(bundle, id) {
+function hmrAcceptCheck(bundle, id) {
   var modules = bundle.modules;
 
   if (!modules) {
@@ -519,9 +791,27 @@ function hmrAccept(bundle, id) {
   }
 
   if (!modules[id] && bundle.parent) {
-    return hmrAccept(bundle.parent, id);
+    return hmrAcceptCheck(bundle.parent, id);
   }
 
+  if (checkedAssets[id]) {
+    return;
+  }
+
+  checkedAssets[id] = true;
+  var cached = bundle.cache[id];
+  assetsToAccept.push([bundle, id]);
+
+  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
+    return true;
+  }
+
+  return getParents(global.parcelRequire, id).some(function (id) {
+    return hmrAcceptCheck(global.parcelRequire, id);
+  });
+}
+
+function hmrAcceptRun(bundle, id) {
   var cached = bundle.cache[id];
   bundle.hotData = {};
 
@@ -546,10 +836,6 @@ function hmrAccept(bundle, id) {
 
     return true;
   }
-
-  return getParents(global.parcelRequire, id).some(function (id) {
-    return hmrAccept(global.parcelRequire, id);
-  });
 }
-},{}]},{},["../../../.nvm/versions/node/v11.10.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
-//# sourceMappingURL=/js.00a46daa.map
+},{}]},{},["../../../.nvm/versions/node/v11.12.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
+//# sourceMappingURL=/js.00a46daa.js.map

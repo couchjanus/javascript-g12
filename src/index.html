@@ -18,7 +18,7 @@
         <ul class="nav-menu">
             <li class="nav-item"><a href="#">Home</a></li>
             <li class="nav-item"><a href="#">About</a></li>
-            <li class="nav-item"><a href="#">Blog</a></li>
+            <li class="nav-item"><a href="#" id="openModal">Add New</a></li>
             <li class="nav-item"><a href="#">Contact</a></li>
         </ul>
     </nav>
@@ -30,16 +30,7 @@
             <h2>Cart</h2>
             <!-- cart-items start-->
             <ul class="cart-items">
-                <li class='cart-item'>
-                    <div class='item-img'>
-                        <img src="images/cat3.jpg" alt='' />
-                    </div>
-                    <span class="item-name">Product Name</span>
-                    <span class="item-quantity">1x</span>
-                    <strong class="item-price">$9.99</strong>
-                    <div class='cart-item-border'></div>
-                    <div class='remove-item'></div>
-                </li>
+
 
             </ul>
             <!-- cart-items end -->
@@ -57,7 +48,7 @@
     <div id="main-content">
         <main class="main" id="main">
             <!-- Main -->
-            
+
         </main>
     </div>
     <footer class="footer">
@@ -81,8 +72,8 @@
 
     <template id="productItem">
         <article class="grid-item">
-            <div class="product-wrapper" id="productId">
-                <div class="product">
+            <div class="product-wrapper">
+                <div class="product" id="productId">
                     <p class="product-name"></p>
                     <div class="icon">
                         <div class="icon-background"></div>
@@ -95,7 +86,7 @@
                     </div>
                     <div class="product-menu">
                         <div class="product-price">
-                            
+
                         </div>
                         <div class="buy-now">
                             Buy now!
@@ -128,7 +119,7 @@
             </div>
         </article>
     </template>
-   
+
     <template id="cartItem">
         <li class='cart-item'>
             <span class="productInCart" id=""></span>
@@ -141,7 +132,7 @@
             <strong class="item-prices"></strong>
             <div class='remove-item'></div>
             <div class='cart-item-border'></div>
-            
+
         </li>
     </template>
 
@@ -232,6 +223,39 @@
             </div>
         </div>
     </template>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-modal">&times;</span>
+                <h2>Create Product</h2>
+            </div>
+            <div class="form modal-body">
+
+                <form class="product-form">
+                    <input id="product--name" type="text" placeholder="Pruduct Name" required />
+                    <input id="product--price" type="text" placeholder="Pruduct Price" required />
+                    <input id="product--description" type="text" placeholder="Pruduct Description" required />
+                    <select id="product--picture">
+                        <option>----Select Picture-----</option>
+                        <option value="cat1.jpg">Red Cat</option>
+                        <option value="cat2.jpg">Green Cat</option>
+                        <option value="cat3.jpg">Angry Cat</option>
+                        <option value="cat4.jpg">Cool Cat</option>
+                        <option value="cat5.jpg">Nice Cat</option>
+                        <option value="cat6.jpg">Black Cat</option>
+                    </select>
+                    <button id="save-product">Add Product</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>
+        </div>
+
+    </div>
 
     <script src=./js/index.js> </script> </body> </html>
